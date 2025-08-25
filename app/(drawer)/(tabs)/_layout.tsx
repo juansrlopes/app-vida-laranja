@@ -32,6 +32,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Home',
+          headerTitle: 'Home',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
         }}
       />
@@ -39,6 +40,7 @@ export default function TabLayout() {
         name="events"
         options={{
           title: 'Events',
+          headerTitle: 'Events',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="calendar" color={color} />,
         }}
       />
@@ -46,6 +48,7 @@ export default function TabLayout() {
         name="about"
         options={{
           title: 'About',
+          headerTitle: 'About',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="info.circle" color={color} />,
         }}
       />
@@ -53,6 +56,7 @@ export default function TabLayout() {
         name="recommendations"
         options={{
           title: 'Recommendations',
+          headerTitle: 'Recommendations',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="star.fill" color={color} />,
         }}
       />
@@ -60,7 +64,42 @@ export default function TabLayout() {
         name="services"
         options={{
           title: 'Services',
+          headerTitle: 'Services',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="wrench.and.screwdriver" color={color} />,
+        }}
+      />
+      
+      {/* Drawer screens - hidden from tab bar but accessible via drawer */}
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          headerTitle: 'Profile',
+          href: null, // Hide from tab bar
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: 'Settings',
+          headerTitle: 'Settings',
+          href: null, // Hide from tab bar
+        }}
+      />
+      <Tabs.Screen
+        name="notifications"
+        options={{
+          title: 'Notifications',
+          headerTitle: 'Notifications',
+          href: null, // Hide from tab bar
+        }}
+      />
+      <Tabs.Screen
+        name="help"
+        options={{
+          title: 'Help & Support',
+          headerTitle: 'Help & Support',
+          href: null, // Hide from tab bar
         }}
       />
     </Tabs>

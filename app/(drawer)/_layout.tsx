@@ -1,5 +1,7 @@
 import { CustomDrawerContent } from '@/components/CustomDrawerContent';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 import { Colors } from '@/constants/Colors';
+import { DrawerToggleButton } from '@react-navigation/drawer';
 import { Drawer } from 'expo-router/drawer';
 
 export default function DrawerLayout() {
@@ -7,57 +9,29 @@ export default function DrawerLayout() {
     <Drawer
       drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={{
+        headerShown: true,
         headerStyle: {
           backgroundColor: Colors.background,
         },
         headerTintColor: Colors.text,
+        headerLeft: () => <DrawerToggleButton tintColor={Colors.tint} />,
         drawerStyle: {
           backgroundColor: Colors.background,
         },
         drawerActiveTintColor: Colors.tint,
         drawerInactiveTintColor: Colors.icon,
       }}>
+      <Drawer.Screen
+        name="(tabs)"
+        options={{
+          drawerLabel: 'Main App',
+          headerShown: false,
+          drawerIcon: ({ color, size }) => (
+            <IconSymbol name="house.fill" size={size} color={color} />
+          ),
+        }}
+      />
 
-      <Drawer.Screen
-        name="profile"
-        options={{
-          drawerLabel: 'Profile',
-          title: 'Profile',
-          drawerIcon: ({ color, size }) => (
-            <IconSymbol name="person.circle" size={size} color={color} />
-          ),
-        }}
-      />
-      <Drawer.Screen
-        name="settings"
-        options={{
-          drawerLabel: 'Settings',
-          title: 'Settings',
-          drawerIcon: ({ color, size }) => (
-            <IconSymbol name="gear" size={size} color={color} />
-          ),
-        }}
-      />
-      <Drawer.Screen
-        name="notifications"
-        options={{
-          drawerLabel: 'Notifications',
-          title: 'Notifications',
-          drawerIcon: ({ color, size }) => (
-            <IconSymbol name="bell" size={size} color={color} />
-          ),
-        }}
-      />
-      <Drawer.Screen
-        name="help"
-        options={{
-          drawerLabel: 'Help & Support',
-          title: 'Help & Support',
-          drawerIcon: ({ color, size }) => (
-            <IconSymbol name="questionmark.circle" size={size} color={color} />
-          ),
-        }}
-      />
     </Drawer>
   );
 }

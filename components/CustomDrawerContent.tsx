@@ -9,23 +9,28 @@ import { Colors } from '@/constants/Colors';
 
 const drawerItems = [
   {
+    label: 'Home',
+    route: '/(drawer)/(tabs)' as const,
+    icon: 'house.fill' as const,
+  },
+  {
     label: 'Profile',
-    route: '/(drawer)/profile',
+    route: '/(drawer)/(tabs)/profile' as const,
     icon: 'person.circle' as const,
   },
   {
     label: 'Settings',
-    route: '/(drawer)/settings',
+    route: '/(drawer)/(tabs)/settings' as const,
     icon: 'gear' as const,
   },
   {
     label: 'Notifications',
-    route: '/(drawer)/notifications',
+    route: '/(drawer)/(tabs)/notifications' as const,
     icon: 'bell' as const,
   },
   {
     label: 'Help & Support',
-    route: '/(drawer)/help',
+    route: '/(drawer)/(tabs)/help' as const,
     icon: 'questionmark.circle' as const,
   },
 ];

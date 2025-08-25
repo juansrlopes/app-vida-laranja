@@ -1,4 +1,4 @@
-import HelpScreen from "../screens/help/index";
+import HelpScreen from "../../screens/help/index";
 
 export default function HelpTab() {
   return (

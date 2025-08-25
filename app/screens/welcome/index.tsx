@@ -6,7 +6,7 @@ import { Pressable, StyleSheet, View } from 'react-native';
 
 export default function WelcomeScreen() {
   const handleGetStarted = () => {
-    router.push('/(tabs)');
+    router.push('/(drawer)/(tabs)');
   };
 
   // Orange gradient for Vida Laranja theme
