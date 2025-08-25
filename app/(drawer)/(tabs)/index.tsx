@@ -1,4 +1,4 @@
-import HomeScreen from '../screens/home';
+import HomeScreen from '../../screens/home/index';
 
 export default function HomeTab() {
   return (

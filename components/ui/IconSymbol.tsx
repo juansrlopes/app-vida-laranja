@@ -16,6 +16,10 @@ const MAPPING = {
   'info.circle': 'info',
   'star.fill': 'star',
   'wrench.and.screwdriver': 'build',
+  'person.circle': 'account-circle',
+  'gear': 'settings',
+  'bell': 'notifications',
+  'questionmark.circle': 'help',
 } as Partial<
   Record<
     import('expo-symbols').SymbolViewProps['name'],
