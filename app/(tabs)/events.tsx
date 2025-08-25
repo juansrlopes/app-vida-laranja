@@ -1,4 +1,4 @@
-import EventsScreen from "../../screens/events/index";
+import EventsScreen from "../screens/events/index";
 
 export default function EventsTab() {
   return (

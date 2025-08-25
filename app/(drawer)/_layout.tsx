@@ -1,35 +1,23 @@
 import { CustomDrawerContent } from '@/components/CustomDrawerContent';
 import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
 import { Drawer } from 'expo-router/drawer';
 
 export default function DrawerLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Drawer
       drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={{
         headerStyle: {
-          backgroundColor: Colors[colorScheme ?? 'light'].background,
+          backgroundColor: Colors.background,
         },
-        headerTintColor: Colors[colorScheme ?? 'light'].text,
+        headerTintColor: Colors.text,
         drawerStyle: {
-          backgroundColor: Colors[colorScheme ?? 'light'].background,
+          backgroundColor: Colors.background,
         },
-        drawerActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        drawerInactiveTintColor: Colors[colorScheme ?? 'light'].icon,
+        drawerActiveTintColor: Colors.tint,
+        drawerInactiveTintColor: Colors.icon,
       }}>
-      <Drawer.Screen
-        name="(tabs)"
-        options={{
-          drawerLabel: 'Main App',
-          title: 'Vida Laranja',
-          drawerIcon: ({ color, size }) => (
-            <IconSymbol name="house.fill" size={size} color={color} />
-          ),
-        }}
-      />
+
       <Drawer.Screen
         name="profile"
         options={{

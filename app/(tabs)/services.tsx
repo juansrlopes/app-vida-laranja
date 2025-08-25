@@ -1,4 +1,4 @@
-import ServicesScreen from "../../screens/services/index";
+import ServicesScreen from "../screens/services/index";
 
 export default function ServicesTab() {
   return (

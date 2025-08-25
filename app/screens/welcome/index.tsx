@@ -1,24 +1,16 @@
 import { ThemedText } from '@/components/ThemedText';
-import { useColorScheme } from '@/hooks/useColorScheme';
-import { useThemeColor } from '@/hooks/useThemeColor';
+import { Colors } from '@/constants/Colors';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 export default function WelcomeScreen() {
-  const backgroundColor = useThemeColor({}, 'background');
-  const tintColor = useThemeColor({}, 'tint');
-  const textColor = useThemeColor({}, 'text');
-  const colorScheme = useColorScheme();
-
   const handleGetStarted = () => {
-    router.push('/(drawer)/(tabs)');
+    router.push('/(tabs)');
   };
 
-  // Define gradient colors based on theme
-  const gradientColors = colorScheme === 'dark' 
-    ? ['#1a1a1a', '#2d2d2d', '#1a1a1a'] as const
-    : ['#fff5e6', '#ffe0b3', '#ffcc80'] as const;
+  // Orange gradient for Vida Laranja theme
+  const gradientColors = ['#fff5e6', '#ffe0b3', '#ffcc80'] as const;
 
   return (
     <LinearGradient
@@ -38,7 +30,7 @@ export default function WelcomeScreen() {
           <ThemedText type="title" style={styles.title}>
             Welcome to
           </ThemedText>
-          <ThemedText type="title" style={[styles.appName, { color: tintColor }]}>
+          <ThemedText type="title" style={[styles.appName, { color: Colors.tint }]}>
             Vida Laranja
           </ThemedText>
           <ThemedText style={styles.subtitle}>
@@ -48,11 +40,11 @@ export default function WelcomeScreen() {
 
         {/* Get Started Button */}
         <Pressable
-          style={[styles.button, { backgroundColor: tintColor }]}
+          style={[styles.button, { backgroundColor: Colors.tint }]}
           onPress={handleGetStarted}
           android_ripple={{ color: 'rgba(255,255,255,0.2)' }}
         >
-          <ThemedText style={[styles.buttonText, { color: backgroundColor }]}>
+          <ThemedText style={[styles.buttonText, { color: Colors.background }]}>
             Get Started
           </ThemedText>
         </Pressable>

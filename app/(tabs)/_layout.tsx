@@ -2,19 +2,28 @@ import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-import { Tabs } from 'expo-router';
+import { Tabs, router } from 'expo-router';
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, Pressable } from 'react-native';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[(colorScheme as keyof typeof Colors) ?? 'light'].tint,
-        headerShown: false,
+        tabBarActiveTintColor: Colors.tabIconSelected,
+        headerShown: true,
+        headerStyle: {
+          backgroundColor: Colors.background,
+        },
+        headerTintColor: Colors.text,
+        headerLeft: () => (
+          <Pressable
+            onPress={() => router.push('/(drawer)/profile')}
+            style={{ marginLeft: 16 }}
+          >
+            <IconSymbol name="person.circle" size={24} color={Colors.tint} />
+          </Pressable>
+        ),
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
         tabBarStyle: Platform.select({

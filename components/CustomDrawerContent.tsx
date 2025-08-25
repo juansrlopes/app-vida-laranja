@@ -5,14 +5,9 @@ import { StyleSheet, View } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
-import { useThemeColor } from '@/hooks/useThemeColor';
+import { Colors } from '@/constants/Colors';
 
 const drawerItems = [
-  {
-    label: 'Main App',
-    route: '/(drawer)/(tabs)',
-    icon: 'house.fill' as const,
-  },
   {
     label: 'Profile',
     route: '/(drawer)/profile',
@@ -36,13 +31,8 @@ const drawerItems = [
 ];
 
 export function CustomDrawerContent(props: any) {
-  const backgroundColor = useThemeColor({}, 'background');
-  const textColor = useThemeColor({}, 'text');
-  const tintColor = useThemeColor({}, 'tint');
-  const iconColor = useThemeColor({}, 'icon');
-
   return (
-    <DrawerContentScrollView {...props} style={{ backgroundColor }}>
+    <DrawerContentScrollView {...props} style={{ backgroundColor: Colors.background }}>
       <ThemedView style={styles.header}>
         <ThemedText type="title" style={styles.headerTitle}>
           Vida Laranja
@@ -62,11 +52,11 @@ export function CustomDrawerContent(props: any) {
               <IconSymbol
                 name={item.icon}
                 size={size}
-                color={focused ? tintColor : iconColor}
+                color={focused ? Colors.tint : Colors.icon}
               />
             )}
             labelStyle={{
-              color: textColor,
+              color: Colors.text,
               marginLeft: -16,
             }}
             style={styles.drawerItem}
