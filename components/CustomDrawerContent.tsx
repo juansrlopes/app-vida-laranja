@@ -57,12 +57,11 @@ export function CustomDrawerContent(props: any) {
               <IconSymbol
                 name={item.icon}
                 size={size}
-                color={focused ? Colors.tint : Colors.icon}
+                color={Colors.tint}
               />
             )}
             labelStyle={{
-              color: Colors.text,
-              marginLeft: -16,
+              color: Colors.text
             }}
             style={styles.drawerItem}
           />

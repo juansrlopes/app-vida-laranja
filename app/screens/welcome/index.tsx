@@ -21,9 +21,9 @@ export default function WelcomeScreen() {
     >
       <View style={styles.content}>
         {/* App Logo/Icon Area */}
-        <View style={styles.logoContainer}>
+        {/* <View style={styles.logoContainer}>
           <ThemedText style={[styles.logoEmoji, { color: '#FF8C00' }]}>🍊</ThemedText>
-        </View>
+        </View> */}
 
         {/* Welcome Text */}
         <View style={styles.textContainer}>
