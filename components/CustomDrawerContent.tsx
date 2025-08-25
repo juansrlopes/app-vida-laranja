@@ -1,9 +1,7 @@
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import { router } from 'expo-router';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import { Colors } from '@/constants/Colors';
 
@@ -38,14 +36,14 @@ const drawerItems = [
 export function CustomDrawerContent(props: any) {
   return (
     <DrawerContentScrollView {...props} style={{ backgroundColor: Colors.background }}>
-      <ThemedView style={styles.header}>
-        <ThemedText type="title" style={styles.headerTitle}>
+      <View style={[styles.header, { backgroundColor: Colors.background }]}>
+        <Text style={[styles.headerTitle, { color: Colors.tint }]}>
           Vida Laranja
-        </ThemedText>
-        <ThemedText style={styles.headerSubtitle}>
+        </Text>
+        <Text style={[styles.headerSubtitle, { color: Colors.text }]}>
           Welcome back!
-        </ThemedText>
-      </ThemedView>
+        </Text>
+      </View>
       
       <View style={styles.drawerItems}>
         {drawerItems.map((item, index) => (

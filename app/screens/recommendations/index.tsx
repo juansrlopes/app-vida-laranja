@@ -1,12 +1,11 @@
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import { StyleSheet } from 'react-native';
+import { Colors } from '@/constants/Colors';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function RecommendationsScreen() {
   return (
-    <ThemedView style={styles.container}>
-      <ThemedText type="title">Recommendations</ThemedText>
-    </ThemedView>
+    <View style={[styles.container, { backgroundColor: Colors.background }]}>
+      <Text style={[styles.title, { color: Colors.text }]}>Recommendations</Text>
+    </View>
   );
 }
 
@@ -15,5 +14,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    fontFamily: 'OldStandardTT-Bold',
   },
 });

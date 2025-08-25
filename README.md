@@ -98,10 +98,9 @@ app-vida-laranja/
 │       ├── notifications/
 │       └── help/
 ├── components/                 # Reusable UI components
-│   ├── ThemedText.tsx         # Themed text component
-│   ├── ThemedView.tsx         # Themed view component
-│   ├── CustomDrawerContent.tsx # Custom drawer content
+│   ├── CustomDrawerContent.tsx # Custom drawer navigation content
 │   └── ui/                    # UI-specific components
+│       └── IconSymbol.tsx     # Cross-platform icon component
 ├── constants/                 # App constants
 │   └── Colors.ts             # Color theme definitions
 ├── hooks/                    # Custom React hooks

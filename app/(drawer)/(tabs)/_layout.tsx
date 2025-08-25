@@ -1,11 +1,8 @@
-import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { DrawerToggleButton } from '@react-navigation/drawer';
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Platform } from 'react-native';
 
 export default function TabLayout() {
   return (
@@ -17,16 +14,14 @@ export default function TabLayout() {
           backgroundColor: Colors.background,
         },
         headerTintColor: Colors.text,
+        headerTitleStyle: {
+          fontFamily: 'OldStandardTT-Bold',
+          fontSize: 20,
+        },
         headerLeft: () => <DrawerToggleButton tintColor={Colors.tint} />,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
+        tabBarStyle: {
+          backgroundColor: Colors.background,
+        },
       }}>
       <Tabs.Screen
         name="index"

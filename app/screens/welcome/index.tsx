@@ -1,8 +1,7 @@
-import { ThemedText } from '@/components/ThemedText';
 import { Colors } from '@/constants/Colors';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 export default function WelcomeScreen() {
   const handleGetStarted = () => {
@@ -22,20 +21,20 @@ export default function WelcomeScreen() {
       <View style={styles.content}>
         {/* App Logo/Icon Area */}
         {/* <View style={styles.logoContainer}>
-          <ThemedText style={[styles.logoEmoji, { color: '#FF8C00' }]}>🍊</ThemedText>
+          <Text style={[styles.logoEmoji, { color: '#FF8C00' }]}>🍊</Text>
         </View> */}
 
         {/* Welcome Text */}
         <View style={styles.textContainer}>
-          <ThemedText type="title" style={styles.title}>
+          <Text style={[styles.title, { color: Colors.text }]}>
             Welcome to
-          </ThemedText>
-          <ThemedText type="title" style={[styles.appName, { color: Colors.tint }]}>
+          </Text>
+          <Text style={[styles.appName, { color: Colors.tint }]}>
             Vida Laranja
-          </ThemedText>
-          <ThemedText style={styles.subtitle}>
+          </Text>
+          <Text style={[styles.subtitle, { color: Colors.text }]}>
             Your gateway to a vibrant lifestyle
-          </ThemedText>
+          </Text>
         </View>
 
         {/* Get Started Button */}
@@ -44,15 +43,15 @@ export default function WelcomeScreen() {
           onPress={handleGetStarted}
           android_ripple={{ color: 'rgba(255,255,255,0.2)' }}
         >
-          <ThemedText style={[styles.buttonText, { color: Colors.background }]}>
+          <Text style={[styles.buttonText, { color: Colors.background }]}>
             Get Started
-          </ThemedText>
+          </Text>
         </Pressable>
 
         {/* Optional tagline */}
-        <ThemedText style={styles.tagline}>
+        <Text style={[styles.tagline, { color: Colors.text }]}>
           Discover events, services, and recommendations
-        </ThemedText>
+        </Text>
       </View>
     </LinearGradient>
   );
@@ -86,18 +85,22 @@ const styles = StyleSheet.create({
     fontSize: 28,
     textAlign: 'center',
     marginBottom: 8,
+    fontFamily: 'Inter-Regular',
+    fontWeight: 'bold',
   },
   appName: {
     fontSize: 36,
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 16,
+    fontFamily: 'OldStandardTT-Bold',
   },
   subtitle: {
     fontSize: 18,
     textAlign: 'center',
     opacity: 0.8,
     lineHeight: 24,
+    fontFamily: 'Inter-Regular',
   },
   button: {
     paddingHorizontal: 40,
@@ -118,11 +121,13 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 18,
     fontWeight: '600',
+    fontFamily: 'Inter-Bold',
   },
   tagline: {
     fontSize: 14,
     textAlign: 'center',
     opacity: 0.6,
     lineHeight: 20,
+    fontFamily: 'Inter-Regular',
   },
 });

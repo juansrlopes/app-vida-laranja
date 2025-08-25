@@ -1,15 +1,14 @@
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import { StyleSheet } from 'react-native';
+import { Colors } from '@/constants/Colors';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function HelpScreen() {
   return (
-    <ThemedView style={styles.container}>
-      <ThemedText type="title">Help & Support</ThemedText>
-      <ThemedText style={styles.description}>
+    <View style={[styles.container, { backgroundColor: Colors.background }]}>
+      <Text style={[styles.title, { color: Colors.text }]}>Help & Support</Text>
+      <Text style={[styles.description, { color: Colors.text }]}>
         Get help and contact support
-      </ThemedText>
-    </ThemedView>
+      </Text>
+    </View>
   );
 }
 
@@ -20,9 +19,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
   },
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    fontFamily: 'OldStandardTT-Bold',
+  },
   description: {
     marginTop: 16,
     textAlign: 'center',
     opacity: 0.7,
+    fontFamily: 'Inter-Regular',
   },
 });
