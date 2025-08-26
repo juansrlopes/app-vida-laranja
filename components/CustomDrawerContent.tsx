@@ -5,30 +5,31 @@ import { StyleSheet, Text, View } from 'react-native';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import { Colors } from '@/constants/Colors';
 
+// Drawer navigation items - mix of primary and secondary navigation
 const drawerItems = [
   {
     label: 'Home',
-    route: '/(drawer)/(tabs)' as const,
+    route: '/(main)/(tabs)' as const, // Goes to tab navigation
     icon: 'house.fill' as const,
   },
   {
     label: 'Profile',
-    route: '/(drawer)/(tabs)/profile' as const,
+    route: '/(main)/(tabs)/profile' as const, // Hidden tab screen (keeps tabs visible)
     icon: 'person.circle' as const,
   },
   {
     label: 'Settings',
-    route: '/(drawer)/(tabs)/settings' as const,
+    route: '/(main)/(tabs)/settings' as const, // Hidden tab screen (keeps tabs visible)
     icon: 'gear' as const,
   },
   {
     label: 'Notifications',
-    route: '/(drawer)/(tabs)/notifications' as const,
+    route: '/(main)/(tabs)/notifications' as const, // Hidden tab screen (keeps tabs visible)
     icon: 'bell' as const,
   },
   {
     label: 'Help & Support',
-    route: '/(drawer)/(tabs)/help' as const,
+    route: '/(main)/(tabs)/help' as const, // Hidden tab screen (keeps tabs visible)
     icon: 'questionmark.circle' as const,
   },
 ];
@@ -36,6 +37,7 @@ const drawerItems = [
 export function CustomDrawerContent(props: any) {
   return (
     <DrawerContentScrollView {...props} style={{ backgroundColor: Colors.background }}>
+      {/* Drawer header with app branding */}
       <View style={[styles.header, { backgroundColor: Colors.background }]}>
         <Text style={[styles.headerTitle, { color: Colors.tint }]}>
           Vida Laranja

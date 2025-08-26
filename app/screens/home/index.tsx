@@ -1,6 +1,8 @@
 import { Colors } from '@/constants/Colors';
 import { StyleSheet, Text, View } from 'react-native';
 
+// Home screen UI component
+// This is the actual screen content, separated from navigation logic
 export default function HomeScreen() {
   return (
     <View style={[styles.container, { backgroundColor: Colors.background }]}>

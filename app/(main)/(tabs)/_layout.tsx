@@ -8,21 +8,28 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors.tabIconSelected,
-        headerShown: true,
+        tabBarActiveTintColor: Colors.tabIconSelected, // Black for active tab text/icons
+        tabBarInactiveTintColor: Colors.tabIconDefault, // White for inactive tab text/icons
+        headerShown: true, // Show headers for each tab
         headerStyle: {
           backgroundColor: Colors.background,
         },
         headerTintColor: Colors.text,
         headerTitleStyle: {
-          fontFamily: 'OldStandardTT-Bold',
+          fontFamily: 'OldStandardTT-Bold', // Custom font for tab headers
           fontSize: 20,
         },
-        headerLeft: () => <DrawerToggleButton tintColor={Colors.tint} />,
+        headerLeft: () => <DrawerToggleButton tintColor={Colors.tint} />, // Drawer access from tabs
         tabBarStyle: {
-          backgroundColor: Colors.background,
+          backgroundColor: Colors.tint, // Orange tab bar background
+          borderTopWidth: 0, // Remove top border for cleaner look
+        },
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontWeight: '600',
         },
       }}>
+      {/* Main app features - always visible in tab bar */}
       <Tabs.Screen
         name="index"
         options={{
@@ -65,6 +72,7 @@ export default function TabLayout() {
       />
       
       {/* Drawer screens - hidden from tab bar but accessible via drawer */}
+      {/* This keeps tabs always visible when navigating via drawer */}
       <Tabs.Screen
         name="profile"
         options={{

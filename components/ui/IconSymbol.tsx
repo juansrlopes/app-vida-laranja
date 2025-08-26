@@ -1,21 +1,21 @@
-// This file is a fallback for using MaterialIcons on Android and web.
+// Cross-platform icon component
+// Uses SF Symbols on iOS, MaterialIcons on Android/Web
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { SymbolWeight } from 'expo-symbols';
 import React from 'react';
 import { OpaqueColorValue, StyleProp, TextStyle } from 'react-native';
 
-// Add your SFSymbol to MaterialIcons mappings here.
+// Maps SF Symbol names to Material Icon names
 const MAPPING = {
-  // See MaterialIcons here: https://icons.expo.fyi
-  // See SF Symbols in the SF Symbols app on Mac.
+  // Navigation icons
   'house.fill': 'home',
-  'paperplane.fill': 'send',
-  'chevron.left.forwardslash.chevron.right': 'code',
   'calendar': 'event',
   'info.circle': 'info',
   'star.fill': 'star',
   'wrench.and.screwdriver': 'build',
+  
+  // User/settings icons
   'person.circle': 'account-circle',
   'gear': 'settings',
   'bell': 'notifications',

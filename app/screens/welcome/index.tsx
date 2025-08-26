@@ -4,11 +4,12 @@ import { router } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 export default function WelcomeScreen() {
+  // Navigate to main app (drawer + tabs navigation)
   const handleGetStarted = () => {
-    router.push('/(drawer)/(tabs)');
+    router.push('/(main)/(tabs)');
   };
 
-  // Orange gradient for Vida Laranja theme
+  // Orange gradient colors matching the app theme
   const gradientColors = ['#fff5e6', '#ffe0b3', '#ffcc80'] as const;
 
   return (
