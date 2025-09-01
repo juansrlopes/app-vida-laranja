@@ -20,6 +20,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: 'bold',
-    fontFamily: 'OldStandardTT-Bold',
+    // fontFamily: 'OldStandardTT-Bold', // TODO: Uncomment when font is available
   },
 });

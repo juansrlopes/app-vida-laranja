@@ -20,6 +20,9 @@ const MAPPING = {
   'gear': 'settings',
   'bell': 'notifications',
   'questionmark.circle': 'help',
+  
+  // Action icons
+  'xmark': 'close',
 } as Partial<
   Record<
     import('expo-symbols').SymbolViewProps['name'],

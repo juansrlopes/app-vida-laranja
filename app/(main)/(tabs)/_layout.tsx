@@ -1,28 +1,20 @@
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import { Colors } from '@/constants/Colors';
-import { DrawerToggleButton } from '@react-navigation/drawer';
 import { Tabs } from 'expo-router';
-import React from 'react';
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors.tabIconSelected, // Black for active tab text/icons
-        tabBarInactiveTintColor: Colors.tabIconDefault, // White for inactive tab text/icons
-        headerShown: true, // Show headers for each tab
-        headerStyle: {
-          backgroundColor: Colors.background,
-        },
-        headerTintColor: Colors.text,
-        headerTitleStyle: {
-          fontFamily: 'OldStandardTT-Bold', // Custom font for tab headers
-          fontSize: 20,
-        },
-        headerLeft: () => <DrawerToggleButton tintColor={Colors.tint} />, // Drawer access from tabs
+        // Tab bar colors - orange inactive, black active on white background
+        tabBarActiveTintColor: Colors.tabIconSelected, // Black for selected tab
+        tabBarInactiveTintColor: Colors.tabIconDefault, // Orange for unselected tabs
+        headerShown: false, // Headers handled by parent drawer navigator
+        // Tab bar styling
         tabBarStyle: {
-          backgroundColor: Colors.tint, // Orange tab bar background
-          borderTopWidth: 0, // Remove top border for cleaner look
+          backgroundColor: Colors.background, // White background
+          borderTopWidth: 1, // Subtle border for definition
+          borderTopColor: 'rgba(0,0,0,0.1)', // Light gray border
         },
         tabBarLabelStyle: {
           fontSize: 12,
@@ -34,7 +26,6 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Home',
-          headerTitle: 'Home',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
         }}
       />
@@ -42,7 +33,6 @@ export default function TabLayout() {
         name="events"
         options={{
           title: 'Events',
-          headerTitle: 'Events',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="calendar" color={color} />,
         }}
       />
@@ -50,7 +40,6 @@ export default function TabLayout() {
         name="about"
         options={{
           title: 'About',
-          headerTitle: 'About',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="info.circle" color={color} />,
         }}
       />
@@ -58,7 +47,6 @@ export default function TabLayout() {
         name="recommendations"
         options={{
           title: 'Recommendations',
-          headerTitle: 'Recommendations',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="star.fill" color={color} />,
         }}
       />
@@ -66,18 +54,16 @@ export default function TabLayout() {
         name="services"
         options={{
           title: 'Services',
-          headerTitle: 'Services',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="wrench.and.screwdriver" color={color} />,
         }}
       />
       
-      {/* Drawer screens - hidden from tab bar but accessible via drawer */}
-      {/* This keeps tabs always visible when navigating via drawer */}
+      {/* Secondary screens - accessible via drawer, hidden from tab bar */}
+      {/* Architecture: These are tab screens with href:null to keep tabs visible when navigating from drawer */}
       <Tabs.Screen
         name="profile"
         options={{
           title: 'Profile',
-          headerTitle: 'Profile',
           href: null, // Hide from tab bar
         }}
       />
@@ -85,7 +71,6 @@ export default function TabLayout() {
         name="settings"
         options={{
           title: 'Settings',
-          headerTitle: 'Settings',
           href: null, // Hide from tab bar
         }}
       />
@@ -93,7 +78,6 @@ export default function TabLayout() {
         name="notifications"
         options={{
           title: 'Notifications',
-          headerTitle: 'Notifications',
           href: null, // Hide from tab bar
         }}
       />
@@ -101,7 +85,6 @@ export default function TabLayout() {
         name="help"
         options={{
           title: 'Help & Support',
-          headerTitle: 'Help & Support',
           href: null, // Hide from tab bar
         }}
       />

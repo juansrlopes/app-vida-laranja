@@ -9,6 +9,11 @@ export default function RootLayout() {
   // Load custom fonts for the app
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    // TODO: Add custom fonts when available:
+    // 'OldStandardTT-Regular': require('../assets/fonts/OldStandardTT-Regular.ttf'),
+    // 'OldStandardTT-Bold': require('../assets/fonts/OldStandardTT-Bold.ttf'),
+    // 'Inter-Regular': require('../assets/fonts/Inter-Regular.ttf'),
+    // 'Inter-Bold': require('../assets/fonts/Inter-Bold.ttf'),
   });
 
   // Don't render anything until fonts are loaded
