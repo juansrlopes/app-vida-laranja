@@ -1,16 +1,12 @@
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 
-interface BrandLogoProps {
-  // No props needed - image displays at natural size
-}
-
-export default function BrandLogo({}: BrandLogoProps = {}) {
+export default function BrandLogo() {
   return (
     <View style={styles.container}>
       {/* Brand logo image at natural size */}
       <Image 
-        source={require('../assets/images/header-logo.png')} 
+        source={require('../../assets/images/header-logo.png')} 
         style={styles.logoImage}
       />
     </View>
