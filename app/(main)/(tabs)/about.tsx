@@ -1,5 +1,5 @@
-import AboutScreen from '../../screens/about/index';
+import AboutScreen from '@/app/screens/about';
 
-export default function AboutTab() {
-  return <AboutScreen />;
-}
+// Navigation wrapper for About screen
+// This file handles the routing while the actual UI is in screens/about
+export default AboutScreen;

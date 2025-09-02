@@ -1,6 +1,7 @@
 import { Colors, Typography } from '@/constants';
 import React from 'react';
 import {
+  Alert,
   FlatList,
   Image,
   Pressable,
@@ -91,8 +92,13 @@ export default function CategoryDetailScreen({
   );
 
   const handleItemPress = (item: CategoryItem) => {
-    // TODO: Navigate to item details or perform action
-    console.log('Selected item:', item.name);
+    // In a real app, this would navigate to item details screen
+    // For now, we'll show an alert with item information
+    Alert.alert(
+      item.name,
+      `${item.description}\n\nRating: ${item.rating}⭐\nPrice: ${item.priceRange}\nAddress: ${item.address}`,
+      [{ text: 'OK' }]
+    );
   };
 
   return (

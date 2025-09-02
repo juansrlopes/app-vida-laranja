@@ -1,7 +1,5 @@
-// Navigation wrapper for Profile drawer screen
-// Imports the actual UI component from screens folder
-import ProfileScreen from '../../screens/profile/index';
+import ProfileScreen from '@/app/screens/profile';
 
-export default function ProfileTab() {
-  return <ProfileScreen />;
-}
+// Navigation wrapper for Profile screen
+// This file handles the routing while the actual UI is in screens/profile
+export default ProfileScreen;

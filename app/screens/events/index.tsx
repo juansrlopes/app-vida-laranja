@@ -1,5 +1,5 @@
 import EventFilter from '@/components/EventFilter';
-import { Colors } from '@/constants/Colors';
+import { Colors, Typography } from '@/constants';
 import React, { useMemo, useState } from 'react';
 import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
 import { EventCategory, EventItem, mockEvents } from '../../../assets/data';
@@ -81,15 +81,11 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   eventTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    ...Typography.h3,
     marginBottom: 8,
-    // fontFamily: 'Inter-Bold', // TODO: Uncomment when font is available
   },
   eventSubtitle: {
-    fontSize: 16,
-    opacity: 0.7,
+    ...Typography.subtitle,
     lineHeight: 22,
-    // fontFamily: 'Inter-Regular', // TODO: Uncomment when font is available
   },
 });

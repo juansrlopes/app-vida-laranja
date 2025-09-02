@@ -1,4 +1,4 @@
-import { Colors } from '@/constants/Colors';
+import { Colors, Typography } from '@/constants';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function ServicesScreen() {
@@ -16,8 +16,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    // fontFamily: 'OldStandardTT-Bold', // TODO: Uncomment when font is available
+    ...Typography.h1,
   },
 });

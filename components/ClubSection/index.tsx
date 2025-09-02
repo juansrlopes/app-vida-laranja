@@ -82,18 +82,15 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   cardTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    ...Typography.h3,
     color: '#fff',
     marginBottom: 8,
-    // fontFamily: 'Inter-Bold', // TODO: Uncomment when font is available
   },
   cardSubtitle: {
-    fontSize: 16,
+    ...Typography.bodyMedium,
     color: '#fff',
     opacity: 0.9,
     lineHeight: 22,
-    // fontFamily: 'Inter-Regular', // TODO: Uncomment when font is available
   },
   ctaButton: {
     backgroundColor: '#000',
@@ -103,9 +100,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   ctaButtonText: {
+    ...Typography.button,
     color: '#fff',
-    fontSize: 16,
-    fontWeight: '600',
-    // fontFamily: 'Inter-Bold', // TODO: Uncomment when font is available
   },
 });

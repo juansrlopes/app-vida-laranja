@@ -1,5 +1,5 @@
-import ServicesScreen from '../../screens/services/index';
+import ServicesScreen from '@/app/screens/services';
 
-export default function ServicesTab() {
-  return <ServicesScreen />;
-}
+// Navigation wrapper for Services screen
+// This file handles the routing while the actual UI is in screens/services
+export default ServicesScreen;

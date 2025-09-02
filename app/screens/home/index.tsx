@@ -12,8 +12,8 @@ import { mockEvents, mockHighlights } from '../../../assets/data';
 // This is the actual screen content, separated from navigation logic
 export default function HomeScreen() {
   const handleFindFavourites = () => {
-    // TODO: Navigate to favourites screen or show favourites
-    console.log('Navigate to favourites');
+    // Navigate to profile screen where user can view their favorites
+    router.push('/(main)/(tabs)/profile');
   };
 
   const handleViewAllEvents = () => {
@@ -21,8 +21,8 @@ export default function HomeScreen() {
   };
 
   const handleClubAction = () => {
-    // TODO: Navigate to club screen or perform club action
-    console.log('Navigate to club');
+    // Navigate to services screen for club-related services
+    router.push('/(main)/(tabs)/services');
   };
 
   return (

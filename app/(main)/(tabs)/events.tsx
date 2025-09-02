@@ -1,5 +1,5 @@
-import EventsScreen from '../../screens/events/index';
+import EventsScreen from '@/app/screens/events';
 
-export default function EventsTab() {
-  return <EventsScreen />;
-}
+// Navigation wrapper for Events screen
+// This file handles the routing while the actual UI is in screens/events
+export default EventsScreen;

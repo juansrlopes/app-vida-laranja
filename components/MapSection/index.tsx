@@ -1,4 +1,4 @@
-import { Colors } from '@/constants/Colors';
+import { Colors, Typography } from '@/constants';
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
@@ -61,15 +61,12 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(0,0,0,0.1)',
   },
   mapText: {
-    fontSize: 18,
+    ...Typography.bodyLarge,
     fontWeight: '600',
     marginBottom: 4,
-    // fontFamily: 'Inter-Bold', // TODO: Uncomment when font is available
   },
   mapSubtext: {
-    fontSize: 14,
-    opacity: 0.7,
-    // fontFamily: 'Inter-Regular', // TODO: Uncomment when font is available
+    ...Typography.caption,
   },
   linkContainer: {
     alignItems: 'center',
@@ -80,9 +77,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   linkText: {
-    fontSize: 16,
-    fontWeight: '600',
+    ...Typography.button,
     textDecorationLine: 'underline',
-    // fontFamily: 'Inter-Bold', // TODO: Uncomment when font is available
   },
 });

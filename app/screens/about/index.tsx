@@ -36,13 +36,6 @@ export default function AboutScreen() {
         />
       </View>
 
-      {/* App Title */}
-      <Text
-        style={[Typography.h1, { color: Colors.tint, textAlign: 'center' }]}
-      >
-        Vida Laranja
-      </Text>
-
       {/* App Description */}
       <View style={styles.descriptionContainer}>
         <Text
@@ -182,14 +175,14 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 10,
   },
   logo: {
     width: 120,
     height: 120,
   },
   descriptionContainer: {
-    marginVertical: 30,
+    marginVertical: 10,
   },
   featuresContainer: {
     marginVertical: 30,

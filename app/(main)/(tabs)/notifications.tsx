@@ -1,5 +1,5 @@
-import NotificationsScreen from '../../screens/notifications/index';
+import NotificationsScreen from '@/app/screens/notifications';
 
-export default function NotificationsTab() {
-  return <NotificationsScreen />;
-}
+// Navigation wrapper for Notifications screen
+// This file handles the routing while the actual UI is in screens/notifications
+export default NotificationsScreen;

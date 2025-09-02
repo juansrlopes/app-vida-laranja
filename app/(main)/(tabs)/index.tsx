@@ -1,7 +1,5 @@
-// Navigation wrapper for Home tab
-// Imports the actual UI component from screens folder
-import HomeScreen from '../../screens/home/index';
+import HomeScreen from '@/app/screens/home';
 
-export default function HomeTab() {
-  return <HomeScreen />;
-}
+// Navigation wrapper for Home screen
+// This file handles the routing while the actual UI is in screens/home
+export default HomeScreen;

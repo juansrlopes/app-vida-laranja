@@ -1,5 +1,5 @@
 import { EventCategory } from '@/components/EventsSection';
-import { Colors } from '@/constants/Colors';
+import { Colors, Typography } from '@/constants';
 import React from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
@@ -90,8 +90,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   filterText: {
-    fontSize: 14,
-    fontWeight: '600',
-    // fontFamily: 'Inter-Bold', // TODO: Uncomment when font is available
+    ...Typography.buttonSmall,
   },
 });

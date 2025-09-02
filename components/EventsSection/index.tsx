@@ -112,10 +112,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   ctaButtonText: {
+    ...Typography.buttonSmall,
     color: '#000',
-    fontSize: 14,
-    fontWeight: '600',
-    // fontFamily: 'Inter-Bold', // TODO: Uncomment when font is available
   },
   eventsGrid: {
     paddingHorizontal: 20,
@@ -146,14 +144,10 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   eventTitle: {
-    fontSize: 14,
-    fontWeight: '600',
+    ...Typography.bodyRegularSemiBold,
     marginBottom: 2,
-    // fontFamily: 'Inter-Bold', // TODO: Uncomment when font is available
   },
   eventSubtitle: {
-    fontSize: 12,
-    opacity: 0.7,
-    // fontFamily: 'Inter-Regular', // TODO: Uncomment when font is available
+    ...Typography.caption,
   },
 });
