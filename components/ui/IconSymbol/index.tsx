@@ -14,6 +14,7 @@ const MAPPING = {
   'info.circle': 'info',
   'star.fill': 'star',
   'wrench.and.screwdriver': 'build',
+  'trophy.fill': 'emoji-events',
 
   // User/settings icons
   'person.circle': 'account-circle',

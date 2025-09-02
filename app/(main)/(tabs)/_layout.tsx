@@ -42,11 +42,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="recommendations"
+        name="top5"
         options={{
-          title: 'Recommendations',
+          title: 'Top 5',
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="star.fill" color={color} />
+            <IconSymbol size={28} name="trophy.fill" color={color} />
           ),
         }}
       />
@@ -97,6 +97,20 @@ export default function TabLayout() {
         options={{
           title: 'Help & Support',
           href: null, // Hide from tab bar
+        }}
+      />
+      <Tabs.Screen
+        name="recommendations"
+        options={{
+          title: 'Recommendations',
+          href: null, // Hide from tab bar - accessible via drawer
+        }}
+      />
+      <Tabs.Screen
+        name="category-detail"
+        options={{
+          title: 'Category Detail',
+          href: null, // Hide from tab bar - accessible via Top 5 navigation
         }}
       />
     </Tabs>

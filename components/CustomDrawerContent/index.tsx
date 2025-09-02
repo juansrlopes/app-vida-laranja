@@ -18,19 +18,24 @@ const drawerItems = [
     icon: 'person.circle' as const,
   },
   {
-    label: 'Settings',
-    route: '/(main)/(tabs)/settings' as const, // Hidden tab screen (keeps tabs visible)
-    icon: 'gear' as const,
-  },
-  {
     label: 'Notifications',
     route: '/(main)/(tabs)/notifications' as const, // Hidden tab screen (keeps tabs visible)
     icon: 'bell' as const,
   },
   {
+    label: 'Recommendations',
+    route: '/(main)/(tabs)/recommendations' as const, // Hidden tab screen (keeps tabs visible)
+    icon: 'star.fill' as const,
+  },
+  {
     label: 'Help & Support',
     route: '/(main)/(tabs)/help' as const, // Hidden tab screen (keeps tabs visible)
     icon: 'questionmark.circle' as const,
+  },
+  {
+    label: 'Settings',
+    route: '/(main)/(tabs)/settings' as const, // Hidden tab screen (keeps tabs visible)
+    icon: 'gear' as const,
   },
 ];
 
