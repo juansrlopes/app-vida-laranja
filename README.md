@@ -14,6 +14,7 @@
 ## 🏗️ Architecture
 
 ### Navigation Structure
+
 ```
 Welcome Screen → Tab Navigation (Main Content)
                 ↓
@@ -21,6 +22,7 @@ Welcome Screen → Tab Navigation (Main Content)
 ```
 
 ### Screen Organization
+
 - **Main Tabs**: Home, Events, About, Recommendations, Services
 - **Drawer Items**: Profile, Settings, Notifications, Help & Support
 - **Screen Components**: Reusable components in `/app/screens/`
@@ -29,6 +31,7 @@ Welcome Screen → Tab Navigation (Main Content)
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js (v18 or higher)
 - npm or yarn
 - Expo CLI
@@ -38,29 +41,33 @@ Welcome Screen → Tab Navigation (Main Content)
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/juansrlopes/app-vida-laranja.git
    cd app-vida-laranja
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start the development server**
+
    ```bash
    npx expo start
    ```
 
 4. **Run on different platforms**
+
    ```bash
    # iOS Simulator
    npx expo start --ios
-   
+
    # Android Emulator
    npx expo start --android
-   
+
    # Web Browser
    npx expo start --web
    ```
@@ -110,6 +117,7 @@ app-vida-laranja/
 ## 🎨 Design System
 
 ### Color Palette
+
 - **Primary Orange**: `#FF8C00` - Main brand color
 - **Light Orange**: `#FFE0B3` - Accent and backgrounds
 - **Text**: `#11181C` - Primary text color
@@ -117,8 +125,10 @@ app-vida-laranja/
 - **Gray**: `#687076` - Secondary text and icons
 
 ### Typography
-- **Custom Font**: SpaceMono for enhanced readability
-- **Text Types**: Default, Title, Subtitle, SemiBold, Link
+
+- **Header Font**: Harmoni for section titles and branding
+- **Body Font**: Inter family (Regular, Medium, SemiBold, Bold, Light) for all text content
+- **Text Types**: Predefined typography styles in `constants/Typography.ts`
 
 ## 🧭 Navigation Flow
 
@@ -129,6 +139,7 @@ app-vida-laranja/
 ## 🛠️ Development
 
 ### Key Technologies
+
 - **Expo SDK 53** - Development platform
 - **React Native 0.79.6** - Mobile framework
 - **Expo Router 5.1.5** - File-based routing
@@ -137,6 +148,7 @@ app-vida-laranja/
 - **Linear Gradient** - Beautiful gradient backgrounds
 
 ### Code Style
+
 - **ESLint** configuration for code quality
 - **TypeScript** strict mode enabled
 - **Modular architecture** with reusable components
@@ -163,6 +175,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Juan Silva Lopes**
+
 - GitHub: [@juansrlopes](https://github.com/juansrlopes)
 - Repository: [app-vida-laranja](https://github.com/juansrlopes/app-vida-laranja)
 

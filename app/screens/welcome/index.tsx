@@ -27,8 +27,8 @@ export default function WelcomeScreen() {
       <View style={styles.content}>
         {/* Main Logo */}
         <View style={styles.logoContainer}>
-          <Image 
-            source={require('../../../assets/images/main-logo.png')} 
+          <Image
+            source={require('../../../assets/images/main-logo.png')}
             style={styles.mainLogo}
             resizeMode="contain"
           />
@@ -36,10 +36,7 @@ export default function WelcomeScreen() {
 
         {/* Loading Indicator */}
         <View style={styles.loadingContainer}>
-          <ActivityIndicator 
-            size="large" 
-            color={Colors.tint}
-          />
+          <ActivityIndicator size="large" color={Colors.tint} />
         </View>
       </View>
     </LinearGradient>

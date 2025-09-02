@@ -10,19 +10,19 @@ import { OpaqueColorValue, StyleProp, TextStyle } from 'react-native';
 const MAPPING = {
   // Navigation icons
   'house.fill': 'home',
-  'calendar': 'event',
+  calendar: 'event',
   'info.circle': 'info',
   'star.fill': 'star',
   'wrench.and.screwdriver': 'build',
-  
+
   // User/settings icons
   'person.circle': 'account-circle',
-  'gear': 'settings',
-  'bell': 'notifications',
+  gear: 'settings',
+  bell: 'notifications',
   'questionmark.circle': 'help',
-  
+
   // Action icons
-  'xmark': 'close',
+  xmark: 'close',
 } as Partial<
   Record<
     import('expo-symbols').SymbolViewProps['name'],
@@ -49,5 +49,12 @@ export function IconSymbol({
   style?: StyleProp<TextStyle>;
   weight?: SymbolWeight;
 }) {
-  return <MaterialIcons color={color} size={size} name={MAPPING[name]} style={style} />;
+  return (
+    <MaterialIcons
+      color={color}
+      size={size}
+      name={MAPPING[name]}
+      style={style}
+    />
+  );
 }

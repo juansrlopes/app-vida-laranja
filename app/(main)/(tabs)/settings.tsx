@@ -1,7 +1,5 @@
-import SettingsScreen from "../../screens/settings/index";
+import SettingsScreen from '../../screens/settings/index';
 
 export default function SettingsTab() {
-  return (
-    <SettingsScreen />
-  );
+  return <SettingsScreen />;
 }

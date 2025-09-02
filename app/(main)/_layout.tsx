@@ -28,7 +28,8 @@ export default function DrawerLayout() {
         },
         drawerActiveTintColor: Colors.tint, // Orange for selected items
         drawerInactiveTintColor: Colors.icon, // Gray for unselected items
-      }}>
+      }}
+    >
       {/* Main app container - includes tab navigation + hidden drawer screens */}
       <Drawer.Screen
         name="(tabs)"

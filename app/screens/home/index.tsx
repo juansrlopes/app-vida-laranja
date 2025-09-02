@@ -1,25 +1,65 @@
+import ClubSection from '@/components/ClubSection';
+import Divider from '@/components/Divider';
+import EventsSection from '@/components/EventsSection';
+import HighlightsCarousel from '@/components/HighlightsCarousel';
+import MapSection from '@/components/MapSection';
 import { Colors } from '@/constants/Colors';
-import { StyleSheet, Text, View } from 'react-native';
+import { router } from 'expo-router';
+import { ScrollView, StyleSheet } from 'react-native';
+import { mockEvents, mockHighlights } from '../../../assets/data';
 
 // Home screen UI component
 // This is the actual screen content, separated from navigation logic
 export default function HomeScreen() {
+  const handleFindFavourites = () => {
+    // TODO: Navigate to favourites screen or show favourites
+    console.log('Navigate to favourites');
+  };
+
+  const handleViewAllEvents = () => {
+    router.push('/(main)/(tabs)/events');
+  };
+
+  const handleClubAction = () => {
+    // TODO: Navigate to club screen or perform club action
+    console.log('Navigate to club');
+  };
+
   return (
-    <View style={[styles.container, { backgroundColor: Colors.background }]}>
-      <Text style={[styles.title, { color: Colors.text }]}>Home</Text>
-    </View>
+    <ScrollView
+      style={[styles.container, { backgroundColor: Colors.background }]}
+      showsVerticalScrollIndicator={false}
+    >
+      {/* Highlights Carousel */}
+      <HighlightsCarousel items={mockHighlights} title="Highlights" />
+
+      {/* Divider */}
+      <Divider />
+
+      {/* Map Section */}
+      <MapSection onFindFavourites={handleFindFavourites} />
+
+      {/* Divider */}
+      <Divider />
+
+      {/* Events Section */}
+      <EventsSection
+        events={mockEvents}
+        title="Events"
+        onViewAll={handleViewAllEvents}
+      />
+
+      {/* Divider */}
+      <Divider />
+
+      {/* Club Section */}
+      <ClubSection onButtonPress={handleClubAction} />
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    // fontFamily: 'OldStandardTT-Bold', // TODO: Uncomment when font is available
   },
 });

@@ -20,44 +20,55 @@ export default function TabLayout() {
           fontSize: 12,
           fontWeight: '600',
         },
-      }}>
+      }}
+    >
       {/* Main app features - always visible in tab bar */}
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="house.fill" color={color} />
+          ),
         }}
       />
       <Tabs.Screen
         name="events"
         options={{
           title: 'Events',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="calendar" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="about"
-        options={{
-          title: 'About',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="info.circle" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="calendar" color={color} />
+          ),
         }}
       />
       <Tabs.Screen
         name="recommendations"
         options={{
           title: 'Recommendations',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="star.fill" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="star.fill" color={color} />
+          ),
         }}
       />
       <Tabs.Screen
         name="services"
         options={{
           title: 'Services',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="wrench.and.screwdriver" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="wrench.and.screwdriver" color={color} />
+          ),
         }}
       />
-      
+      <Tabs.Screen
+        name="about"
+        options={{
+          title: 'About',
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="info.circle" color={color} />
+          ),
+        }}
+      />
+
       {/* Secondary screens - accessible via drawer, hidden from tab bar */}
       {/* Architecture: These are tab screens with href:null to keep tabs visible when navigating from drawer */}
       <Tabs.Screen

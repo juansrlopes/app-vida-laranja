@@ -36,7 +36,10 @@ const drawerItems = [
 
 export function CustomDrawerContent(props: any) {
   return (
-    <DrawerContentScrollView {...props} style={{ backgroundColor: Colors.background }}>
+    <DrawerContentScrollView
+      {...props}
+      style={{ backgroundColor: Colors.background }}
+    >
       {/* Drawer header with app branding and close button */}
       <View style={[styles.header, { backgroundColor: Colors.background }]}>
         <View style={styles.headerContent}>
@@ -50,7 +53,10 @@ export function CustomDrawerContent(props: any) {
           </View>
           {/* Close button in top right */}
           <Pressable
-            style={[styles.closeButton, { backgroundColor: 'rgba(0,0,0,0.05)' }]}
+            style={[
+              styles.closeButton,
+              { backgroundColor: 'rgba(0,0,0,0.05)' },
+            ]}
             onPress={() => props.navigation.closeDrawer()}
             android_ripple={{ color: 'rgba(0,0,0,0.1)', radius: 20 }}
           >
@@ -58,7 +64,7 @@ export function CustomDrawerContent(props: any) {
           </Pressable>
         </View>
       </View>
-      
+
       <View style={styles.drawerItems}>
         {drawerItems.map((item, index) => (
           <DrawerItem
@@ -66,14 +72,10 @@ export function CustomDrawerContent(props: any) {
             label={item.label}
             onPress={() => router.push(item.route)}
             icon={({ focused, size }) => (
-              <IconSymbol
-                name={item.icon}
-                size={size}
-                color={Colors.tint}
-              />
+              <IconSymbol name={item.icon} size={size} color={Colors.tint} />
             )}
             labelStyle={{
-              color: Colors.text
+              color: Colors.text,
             }}
             style={styles.drawerItem}
           />

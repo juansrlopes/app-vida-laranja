@@ -4,7 +4,9 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function RecommendationsScreen() {
   return (
     <View style={[styles.container, { backgroundColor: Colors.background }]}>
-      <Text style={[styles.title, { color: Colors.text }]}>Recommendations</Text>
+      <Text style={[styles.title, { color: Colors.text }]}>
+        Recommendations
+      </Text>
     </View>
   );
 }
