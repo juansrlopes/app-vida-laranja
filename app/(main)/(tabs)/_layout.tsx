@@ -107,10 +107,24 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="category-detail"
+        name="top5-detail"
         options={{
-          title: 'Category Detail',
+          title: 'Top 5 Detail',
           href: null, // Hide from tab bar - accessible via Top 5 navigation
+        }}
+      />
+      <Tabs.Screen
+        name="event-detail"
+        options={{
+          title: 'Event Detail',
+          href: null, // Hide from tab bar - accessible via Events navigation
+        }}
+      />
+      <Tabs.Screen
+        name="service-detail"
+        options={{
+          title: 'Service Detail',
+          href: null, // Hide from tab bar - accessible via Services navigation
         }}
       />
     </Tabs>

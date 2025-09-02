@@ -32,8 +32,8 @@ export default function Top5Screen() {
   );
 
   const handleItemPress = (item: Top5Item) => {
-    // Navigate to category detail page using the slug (within tabs to keep navigation visible)
-    router.push(`/(main)/(tabs)/category-detail?categoryId=${item.slug}`);
+    // Navigate to top5 detail page using the slug (within tabs to keep navigation visible)
+    router.push(`/(main)/(tabs)/top5-detail?categoryId=${item.slug}`);
   };
 
   return (

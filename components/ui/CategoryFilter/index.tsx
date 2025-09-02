@@ -1,38 +1,22 @@
-import { EventCategory } from '@/components/EventsSection';
 import { Colors, Typography } from '@/constants';
 import React from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
-interface EventFilterProps {
-  selectedCategory: EventCategory;
-  onCategoryChange: (category: EventCategory) => void;
+interface CategoryFilterProps<T extends string> {
+  categories: T[];
+  categoryLabels: Record<T, string>;
+  selectedCategory: T;
+  onCategoryChange: (category: T) => void;
 }
 
-// Category display names
-const categoryLabels: Record<EventCategory, string> = {
-  all: 'All',
-  music: 'Music',
-  art: 'Art',
-  food: 'Food',
-  wellness: 'Wellness',
-  workshop: 'Workshop',
-  festival: 'Festival',
-};
-
-export default function EventFilter({
+// Generic category filter component
+// Can be used for events, services, or any other categorized content
+export default function CategoryFilter<T extends string>({
+  categories,
+  categoryLabels,
   selectedCategory,
   onCategoryChange,
-}: EventFilterProps) {
-  const categories: EventCategory[] = [
-    'all',
-    'music',
-    'art',
-    'food',
-    'wellness',
-    'workshop',
-    'festival',
-  ];
-
+}: CategoryFilterProps<T>) {
   return (
     <View style={styles.container}>
       <ScrollView

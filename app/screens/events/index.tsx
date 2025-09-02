@@ -1,12 +1,36 @@
-import EventFilter from '@/components/EventFilter';
-import { Colors, Typography } from '@/constants';
+import CategoryFilter from '@/components/ui/CategoryFilter';
+import ItemList from '@/components/ui/ItemList';
+import { Colors } from '@/constants';
+import { router } from 'expo-router';
 import React, { useMemo, useState } from 'react';
-import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
-import { EventCategory, EventItem, mockEvents } from '../../../assets/data';
+import { StyleSheet, View } from 'react-native';
+import { EventCategory, EventDetail, mockEvents } from '../../../assets/data';
+
+// Event category labels
+const eventCategoryLabels: Record<EventCategory, string> = {
+  all: 'All',
+  music: 'Music',
+  art: 'Art',
+  food: 'Food',
+  wellness: 'Wellness',
+  workshop: 'Workshop',
+  festival: 'Festival',
+};
+
+// Available event categories
+const eventCategories: EventCategory[] = [
+  'all',
+  'music',
+  'art',
+  'food',
+  'wellness',
+  'workshop',
+  'festival',
+];
 
 // Events screen UI component
 // Displays a scrollable list of all events with image, title, and subtitle
-// Includes category filtering functionality
+// Includes category filtering functionality using reusable components
 export default function EventsScreen() {
   const [selectedCategory, setSelectedCategory] =
     useState<EventCategory>('all');
@@ -18,36 +42,23 @@ export default function EventsScreen() {
     }
     return mockEvents.filter((event) => event.category === selectedCategory);
   }, [selectedCategory]);
-  const renderEventItem = ({ item }: { item: EventItem }) => (
-    <View style={styles.eventCard}>
-      <Image source={item.image} style={styles.eventImage} resizeMode="cover" />
-      <View style={styles.eventContent}>
-        <Text style={[styles.eventTitle, { color: Colors.text }]}>
-          {item.title}
-        </Text>
-        <Text style={[styles.eventSubtitle, { color: Colors.text }]}>
-          {item.subtitle}
-        </Text>
-      </View>
-    </View>
-  );
+
+  const handleEventPress = (event: EventDetail) => {
+    router.push(`/(main)/(tabs)/event-detail?eventId=${event.id}`);
+  };
 
   return (
     <View style={[styles.container, { backgroundColor: Colors.background }]}>
       {/* Category Filter */}
-      <EventFilter
+      <CategoryFilter
+        categories={eventCategories}
+        categoryLabels={eventCategoryLabels}
         selectedCategory={selectedCategory}
         onCategoryChange={setSelectedCategory}
       />
 
       {/* Events List */}
-      <FlatList
-        data={filteredEvents}
-        renderItem={renderEventItem}
-        keyExtractor={(item) => item.id}
-        contentContainerStyle={styles.listContainer}
-        showsVerticalScrollIndicator={false}
-      />
+      <ItemList data={filteredEvents} onItemPress={handleEventPress} />
     </View>
   );
 }
@@ -55,37 +66,5 @@ export default function EventsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  listContainer: {
-    padding: 20,
-  },
-  eventCard: {
-    marginBottom: 24,
-    borderRadius: 12,
-    backgroundColor: '#fff',
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    overflow: 'hidden',
-  },
-  eventImage: {
-    width: '100%',
-    height: 200,
-  },
-  eventContent: {
-    padding: 16,
-  },
-  eventTitle: {
-    ...Typography.h3,
-    marginBottom: 8,
-  },
-  eventSubtitle: {
-    ...Typography.subtitle,
-    lineHeight: 22,
   },
 });

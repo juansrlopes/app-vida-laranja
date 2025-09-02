@@ -1,10 +1,50 @@
-import { Colors, Typography } from '@/constants';
-import { StyleSheet, Text, View } from 'react-native';
+import CategoryFilter from '@/components/ui/CategoryFilter';
+import ItemList from '@/components/ui/ItemList';
+import { Colors } from '@/constants';
+import { router } from 'expo-router';
+import React, { useMemo, useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import {
+  mockServices,
+  serviceCategories,
+  ServiceCategory,
+  serviceCategoryLabels,
+  ServiceDetail,
+} from '../../../assets/data';
 
+// Services screen UI component
+// Displays a scrollable list of all services with image, title, and subtitle
+// Includes category filtering functionality using reusable components
 export default function ServicesScreen() {
+  const [selectedCategory, setSelectedCategory] =
+    useState<ServiceCategory>('all');
+
+  // Filter services based on selected category
+  const filteredServices = useMemo(() => {
+    if (selectedCategory === 'all') {
+      return mockServices;
+    }
+    return mockServices.filter(
+      (service) => service.category === selectedCategory
+    );
+  }, [selectedCategory]);
+
+  const handleServicePress = (service: ServiceDetail) => {
+    router.push(`/(main)/(tabs)/service-detail?serviceId=${service.id}`);
+  };
+
   return (
     <View style={[styles.container, { backgroundColor: Colors.background }]}>
-      <Text style={[styles.title, { color: Colors.text }]}>Services</Text>
+      {/* Category Filter */}
+      <CategoryFilter
+        categories={serviceCategories}
+        categoryLabels={serviceCategoryLabels}
+        selectedCategory={selectedCategory}
+        onCategoryChange={setSelectedCategory}
+      />
+
+      {/* Services List */}
+      <ItemList data={filteredServices} onItemPress={handleServicePress} />
     </View>
   );
 }
@@ -12,10 +52,5 @@ export default function ServicesScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    ...Typography.h1,
   },
 });
