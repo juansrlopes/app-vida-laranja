@@ -134,6 +134,13 @@ export default function TabLayout() {
           href: null, // Hide from tab bar - accessible via Highlights navigation
         }}
       />
+      <Tabs.Screen
+        name="map"
+        options={{
+          title: 'Map',
+          href: null, // Hide from tab bar - accessible via Find Favourites navigation
+        }}
+      />
     </Tabs>
   );
 }

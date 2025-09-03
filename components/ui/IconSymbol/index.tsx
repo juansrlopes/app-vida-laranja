@@ -24,6 +24,8 @@ const MAPPING = {
 
   // Action icons
   xmark: 'close',
+  map: 'map',
+  'chevron.left': 'arrow-back',
 } as Partial<
   Record<
     import('expo-symbols').SymbolViewProps['name'],

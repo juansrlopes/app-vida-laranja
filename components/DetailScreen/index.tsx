@@ -4,12 +4,14 @@ import React from 'react';
 import {
   Image,
   Linking,
+  Platform,
   Pressable,
   ScrollView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
+import { IconSymbol } from '../ui/IconSymbol';
 
 // Generic detail item interface
 export interface DetailItem {
@@ -126,7 +128,7 @@ export default function DetailScreen({
           resizeMode="cover"
         />
         <Pressable style={styles.backButtonOverlay} onPress={handleBackPress}>
-          <Text style={styles.backButtonOverlayText}>‹</Text>
+          <IconSymbol name="chevron.left" size={24} color="#fff" />
         </Pressable>
       </View>
 
@@ -397,7 +399,7 @@ const styles = StyleSheet.create({
   },
   backButtonOverlay: {
     position: 'absolute',
-    top: 50,
+    top: Platform.OS === 'ios' ? 50 : 20,
     left: 20,
     width: 40,
     height: 40,
@@ -405,11 +407,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.5)',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  backButtonOverlayText: {
-    color: '#fff',
-    fontSize: 24,
-    fontWeight: 'bold',
+    zIndex: 10,
   },
   contentContainer: {
     padding: 20,

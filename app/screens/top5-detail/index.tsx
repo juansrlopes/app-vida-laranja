@@ -9,20 +9,17 @@ import {
   Text,
   View,
 } from 'react-native';
-import {
-  CategoryItem,
-  getCategoryBySlug,
-} from '../../../assets/data/categories';
+import { CategoryItem, getCategoryBySlug } from '../../../assets/data/top5';
 
-interface CategoryDetailScreenProps {
+interface Top5DetailScreenProps {
   categoryId: string;
 }
 
-// Category detail screen UI component
+// Top 5 detail screen UI component
 // Displays the top 5 items for a specific category
-export default function CategoryDetailScreen({
+export default function Top5DetailScreen({
   categoryId,
-}: CategoryDetailScreenProps) {
+}: Top5DetailScreenProps) {
   const category = getCategoryBySlug(categoryId);
 
   if (!category) {

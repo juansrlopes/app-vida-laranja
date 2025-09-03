@@ -18,6 +18,11 @@ const drawerItems = [
     icon: 'person.circle' as const,
   },
   {
+    label: 'Favourites',
+    route: '/(main)/(tabs)/map' as const, // Hidden tab screen (keeps tabs visible)
+    icon: 'map' as const,
+  },
+  {
     label: 'Notifications',
     route: '/(main)/(tabs)/notifications' as const, // Hidden tab screen (keeps tabs visible)
     icon: 'bell' as const,

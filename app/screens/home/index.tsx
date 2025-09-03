@@ -13,8 +13,8 @@ import { mockEvents, mockHighlights } from '../../../assets/data';
 // This is the actual screen content, separated from navigation logic
 export default function HomeScreen() {
   const handleFindFavourites = () => {
-    // Navigate to profile screen where user can view their favorites
-    router.push('/(main)/(tabs)/profile');
+    // Navigate to full-screen map screen
+    router.push('/(main)/(tabs)/map');
   };
 
   const handleViewAllEvents = () => {
