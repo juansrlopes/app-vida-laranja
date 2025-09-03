@@ -4,29 +4,13 @@ import { Colors } from '@/constants';
 import { router } from 'expo-router';
 import React, { useMemo, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { EventCategory, EventDetail, mockEvents } from '../../../assets/data';
-
-// Event category labels
-const eventCategoryLabels: Record<EventCategory, string> = {
-  all: 'All',
-  music: 'Music',
-  art: 'Art',
-  food: 'Food',
-  wellness: 'Wellness',
-  workshop: 'Workshop',
-  festival: 'Festival',
-};
-
-// Available event categories
-const eventCategories: EventCategory[] = [
-  'all',
-  'music',
-  'art',
-  'food',
-  'wellness',
-  'workshop',
-  'festival',
-];
+import {
+  eventCategories,
+  EventCategory,
+  eventCategoryLabels,
+  EventDetail,
+  mockEvents,
+} from '../../../assets/data';
 
 // Events screen UI component
 // Displays a scrollable list of all events with image, title, and subtitle

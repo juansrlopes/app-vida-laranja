@@ -1,33 +1,17 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-interface DividerProps {
-  color?: string;
-  thickness?: number;
-  marginVertical?: number;
-}
-
-export default function Divider({
-  color = 'rgba(0,0,0,0.1)',
-  thickness = 1,
-  marginVertical = 20,
-}: DividerProps) {
-  return (
-    <View
-      style={[
-        styles.divider,
-        {
-          backgroundColor: color,
-          height: thickness,
-          marginVertical: marginVertical,
-        },
-      ]}
-    />
-  );
+// Simple divider component with consistent styling
+// No props needed - always uses the same design
+export default function Divider() {
+  return <View style={styles.divider} />;
 }
 
 const styles = StyleSheet.create({
   divider: {
     width: '100%',
+    height: 1,
+    backgroundColor: 'rgba(0,0,0,0.1)',
+    marginVertical: 20,
   },
 });

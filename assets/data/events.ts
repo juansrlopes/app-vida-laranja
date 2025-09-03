@@ -1,4 +1,4 @@
-import { EventItem } from '@/components/EventsSection';
+import { EventCategory, EventItem } from '@/components/EventsSection';
 
 // Extended event interface for detailed views
 export interface EventDetail extends EventItem {
@@ -13,6 +13,28 @@ export interface EventDetail extends EventItem {
   capacity?: string;
   tags: string[];
 }
+
+// Available event categories
+export const eventCategories: EventCategory[] = [
+  'all',
+  'music',
+  'art',
+  'food',
+  'wellness',
+  'workshop',
+  'festival',
+];
+
+// Event category labels
+export const eventCategoryLabels: Record<EventCategory, string> = {
+  all: 'All',
+  music: 'Music',
+  art: 'Art',
+  food: 'Food',
+  wellness: 'Wellness',
+  workshop: 'Workshop',
+  festival: 'Festival',
+};
 
 export const mockEvents: EventDetail[] = [
   {
