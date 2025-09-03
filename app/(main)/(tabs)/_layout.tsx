@@ -1,83 +1,80 @@
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import { Colors } from '@/constants/Colors';
-import { DrawerToggleButton } from '@react-navigation/drawer';
 import { Tabs } from 'expo-router';
-import React from 'react';
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors.tabIconSelected, // Black for active tab text/icons
-        tabBarInactiveTintColor: Colors.tabIconDefault, // White for inactive tab text/icons
-        headerShown: true, // Show headers for each tab
-        headerStyle: {
-          backgroundColor: Colors.background,
-        },
-        headerTintColor: Colors.text,
-        headerTitleStyle: {
-          fontFamily: 'OldStandardTT-Bold', // Custom font for tab headers
-          fontSize: 20,
-        },
-        headerLeft: () => <DrawerToggleButton tintColor={Colors.tint} />, // Drawer access from tabs
+        // Tab bar colors - orange inactive, black active on white background
+        tabBarActiveTintColor: Colors.tabIconSelected, // Black for selected tab
+        tabBarInactiveTintColor: Colors.tabIconDefault, // Orange for unselected tabs
+        headerShown: false, // Headers handled by parent drawer navigator
+        // Tab bar styling
         tabBarStyle: {
-          backgroundColor: Colors.tint, // Orange tab bar background
-          borderTopWidth: 0, // Remove top border for cleaner look
+          backgroundColor: Colors.background, // White background
+          borderTopWidth: 1, // Subtle border for definition
+          borderTopColor: 'rgba(0,0,0,0.1)', // Light gray border
         },
         tabBarLabelStyle: {
           fontSize: 12,
           fontWeight: '600',
         },
-      }}>
+      }}
+    >
       {/* Main app features - always visible in tab bar */}
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
-          headerTitle: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="house.fill" color={color} />
+          ),
         }}
       />
       <Tabs.Screen
         name="events"
         options={{
           title: 'Events',
-          headerTitle: 'Events',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="calendar" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="calendar" color={color} />
+          ),
         }}
       />
       <Tabs.Screen
-        name="about"
+        name="top5"
         options={{
-          title: 'About',
-          headerTitle: 'About',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="info.circle" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="recommendations"
-        options={{
-          title: 'Recommendations',
-          headerTitle: 'Recommendations',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="star.fill" color={color} />,
+          title: 'Top 5',
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="trophy.fill" color={color} />
+          ),
         }}
       />
       <Tabs.Screen
         name="services"
         options={{
           title: 'Services',
-          headerTitle: 'Services',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="wrench.and.screwdriver" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="wrench.and.screwdriver" color={color} />
+          ),
         }}
       />
-      
-      {/* Drawer screens - hidden from tab bar but accessible via drawer */}
-      {/* This keeps tabs always visible when navigating via drawer */}
+      <Tabs.Screen
+        name="about"
+        options={{
+          title: 'About',
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="info.circle" color={color} />
+          ),
+        }}
+      />
+
+      {/* Secondary screens - accessible via drawer, hidden from tab bar */}
+      {/* Architecture: These are tab screens with href:null to keep tabs visible when navigating from drawer */}
       <Tabs.Screen
         name="profile"
         options={{
           title: 'Profile',
-          headerTitle: 'Profile',
           href: null, // Hide from tab bar
         }}
       />
@@ -85,7 +82,6 @@ export default function TabLayout() {
         name="settings"
         options={{
           title: 'Settings',
-          headerTitle: 'Settings',
           href: null, // Hide from tab bar
         }}
       />
@@ -93,7 +89,6 @@ export default function TabLayout() {
         name="notifications"
         options={{
           title: 'Notifications',
-          headerTitle: 'Notifications',
           href: null, // Hide from tab bar
         }}
       />
@@ -101,8 +96,49 @@ export default function TabLayout() {
         name="help"
         options={{
           title: 'Help & Support',
-          headerTitle: 'Help & Support',
           href: null, // Hide from tab bar
+        }}
+      />
+      <Tabs.Screen
+        name="recommendations"
+        options={{
+          title: 'Recommendations',
+          href: null, // Hide from tab bar - accessible via drawer
+        }}
+      />
+      <Tabs.Screen
+        name="top5-detail"
+        options={{
+          title: 'Top 5 Detail',
+          href: null, // Hide from tab bar - accessible via Top 5 navigation
+        }}
+      />
+      <Tabs.Screen
+        name="event-detail"
+        options={{
+          title: 'Event Detail',
+          href: null, // Hide from tab bar - accessible via Events navigation
+        }}
+      />
+      <Tabs.Screen
+        name="service-detail"
+        options={{
+          title: 'Service Detail',
+          href: null, // Hide from tab bar - accessible via Services navigation
+        }}
+      />
+      <Tabs.Screen
+        name="highlight-detail"
+        options={{
+          title: 'Highlight Detail',
+          href: null, // Hide from tab bar - accessible via Highlights navigation
+        }}
+      />
+      <Tabs.Screen
+        name="map"
+        options={{
+          title: 'Map',
+          href: null, // Hide from tab bar - accessible via Find Favourites navigation
         }}
       />
     </Tabs>

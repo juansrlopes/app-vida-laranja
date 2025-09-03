@@ -1,7 +1,5 @@
-import RecommendationsScreen from '../../screens/recommendations/index';
+import RecommendationsScreen from '@/app/screens/recommendations';
 
-export default function RecommendationsTab() {
-  return (
-    <RecommendationsScreen />
-  );
-}
+// Navigation wrapper for Recommendations screen
+// This file handles the routing while the actual UI is in screens/recommendations
+export default RecommendationsScreen;

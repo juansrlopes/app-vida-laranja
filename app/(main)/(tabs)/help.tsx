@@ -1,7 +1,5 @@
-import HelpScreen from "../../screens/help/index";
+import HelpScreen from '@/app/screens/help';
 
-export default function HelpTab() {
-  return (
-    <HelpScreen />
-  );
-}
+// Navigation wrapper for Help & Support screen
+// This file handles the routing while the actual UI is in screens/help
+export default HelpScreen;

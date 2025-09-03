@@ -1,10 +1,12 @@
-import { Colors } from '@/constants/Colors';
+import { Colors, Typography } from '@/constants';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function RecommendationsScreen() {
   return (
     <View style={[styles.container, { backgroundColor: Colors.background }]}>
-      <Text style={[styles.title, { color: Colors.text }]}>Recommendations</Text>
+      <Text style={[styles.title, { color: Colors.text }]}>
+        Recommendations
+      </Text>
     </View>
   );
 }
@@ -16,8 +18,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    fontFamily: 'OldStandardTT-Bold',
+    ...Typography.h1,
   },
 });
