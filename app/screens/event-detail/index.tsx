@@ -1,4 +1,4 @@
-import DetailScreen from '@/components/DetailScreen';
+import DetailScreen from '@/components/ui/DetailScreen';
 import React from 'react';
 import { getEventBySlug } from '../../../assets/data';
 

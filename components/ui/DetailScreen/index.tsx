@@ -11,7 +11,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import { IconSymbol } from '../ui/IconSymbol';
+import { IconSymbol } from '../IconSymbol';
 
 // Generic detail item interface
 export interface DetailItem {

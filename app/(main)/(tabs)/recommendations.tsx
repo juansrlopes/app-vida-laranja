@@ -1,5 +1,23 @@
-import RecommendationsScreen from '@/app/screens/recommendations';
+import ScreenContainer from '@/components/layout/ScreenContainer';
+import { Colors, Typography } from '@/constants';
+import { StyleSheet, Text } from 'react-native';
 
-// Navigation wrapper for Recommendations screen
-// This file handles the routing while the actual UI is in screens/recommendations
-export default RecommendationsScreen;
+export default function RecommendationsScreen() {
+  return (
+    <ScreenContainer style={styles.centeredContainer}>
+      <Text style={[styles.title, { color: Colors.text }]}>
+        Recommendations
+      </Text>
+    </ScreenContainer>
+  );
+}
+
+const styles = StyleSheet.create({
+  centeredContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  title: {
+    ...Typography.h1,
+  },
+});

@@ -1,4 +1,4 @@
-import DetailScreen from '@/components/DetailScreen';
+import DetailScreen from '@/components/ui/DetailScreen';
 import { Colors, Typography } from '@/constants';
 import React from 'react';
 import { Linking, Text, View } from 'react-native';

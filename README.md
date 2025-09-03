@@ -167,76 +167,93 @@ interface ServiceDetail {
 
 ## 📁 Project Structure
 
+**✨ Optimized Architecture** - Streamlined for maintainability and developer experience
+
 ```
 app-vida-laranja/
 ├── app/                              # Main application directory
-│   ├── _layout.tsx                  # Root layout with drawer navigation
+│   ├── _layout.tsx                  # Root layout with fonts and navigation
+│   ├── welcome.tsx                  # Splash screen with logo and animation
 │   ├── +not-found.tsx              # 404 error screen
 │   ├── (main)/                     # Main app group
-│   │   ├── _layout.tsx             # Main layout wrapper
+│   │   ├── _layout.tsx             # Drawer navigation layout
 │   │   └── (tabs)/                 # Tab navigation group
 │   │       ├── _layout.tsx         # Tab navigation configuration
-│   │       ├── index.tsx           # Home tab (redirects to screen)
-│   │       ├── events.tsx          # Events tab (redirects to screen)
-│   │       ├── about.tsx           # About tab (redirects to screen)
-│   │       ├── top5.tsx            # Top 5 tab (redirects to screen)
-│   │       ├── services.tsx        # Services tab (redirects to screen)
-│   │       ├── map.tsx             # Full-screen map (hidden tab)
-│   │       ├── profile.tsx         # Profile screen (hidden tab)
-│   │       ├── notifications.tsx   # Notifications (hidden tab)
-│   │       ├── recommendations.tsx # Recommendations (hidden tab)
-│   │       ├── help.tsx           # Help & Support (hidden tab)
-│   │       ├── settings.tsx       # Settings (hidden tab)
-│   │       ├── event-detail.tsx   # Event detail (hidden tab)
-│   │       ├── service-detail.tsx # Service detail (hidden tab)
-│   │       ├── highlight-detail.tsx # Highlight detail (hidden tab)
-│   │       └── top5-detail.tsx    # Top 5 category detail (hidden tab)
-│   └── screens/                    # Reusable screen components
-│       ├── welcome/               # Splash screen with logo and animation
-│       ├── home/                  # Home screen with sections
-│       ├── events/                # Events list with filtering
-│       ├── about/                 # About screen with links
-│       ├── top5/                  # Top 5 categories grid
-│       ├── top5-detail/           # Top 5 category rankings
-│       ├── services/              # Services list with filtering
-│       ├── map/                   # Interactive map with location
-│       ├── profile/               # User profile and stats
-│       ├── notifications/         # Notifications management
-│       ├── recommendations/       # Additional recommendations
-│       ├── help/                  # FAQ and support
-│       ├── settings/              # App settings and preferences
-│       ├── event-detail/          # Event detail screen
-│       ├── service-detail/        # Service detail screen
-│       └── highlight-detail/      # Highlight detail screen
-├── components/                     # Reusable UI components
-│   ├── CustomDrawerContent/       # Custom drawer navigation
-│   ├── DetailScreen/              # Generic detail screen component
-│   ├── HighlightsCarousel/        # Carousel for featured content
-│   ├── EventsSection/             # Events preview section
-│   ├── MapSection/                # Map preview section
-│   ├── ClubSection/               # Club information section
-│   └── ui/                        # UI-specific components
-│       ├── IconSymbol/            # Cross-platform icon component
-│       ├── ItemList/              # Generic list component
-│       └── CategoryFilter/        # Category filtering component
+│   │       ├── index.tsx           # 🏠 Home screen (direct implementation)
+│   │       ├── events.tsx          # 🎪 Events screen (direct implementation)
+│   │       ├── about.tsx           # ℹ️ About screen (direct implementation)
+│   │       ├── top5.tsx            # 🏆 Top 5 screen (direct implementation)
+│   │       ├── services.tsx        # 🏢 Services screen (direct implementation)
+│   │       ├── map.tsx             # 🗺️ Full-screen map (hidden tab)
+│   │       ├── profile.tsx         # 👤 Profile screen (hidden tab)
+│   │       ├── notifications.tsx   # 🔔 Notifications (hidden tab)
+│   │       ├── recommendations.tsx # ⭐ Recommendations (hidden tab)
+│   │       ├── help.tsx           # ❓ Help & Support (hidden tab)
+│   │       ├── settings.tsx       # ⚙️ Settings (hidden tab)
+│   │       ├── event-detail.tsx   # Event detail (parameterized)
+│   │       ├── service-detail.tsx # Service detail (parameterized)
+│   │       ├── highlight-detail.tsx # Highlight detail (parameterized)
+│   │       └── top5-detail.tsx    # Top 5 category detail (parameterized)
+│   └── screens/                    # Parameterized screen components only
+│       ├── event-detail/          # Event detail screen wrapper
+│       ├── service-detail/        # Service detail screen wrapper
+│       ├── highlight-detail/      # Highlight detail screen wrapper
+│       └── top5-detail/           # Top 5 category detail screen wrapper
+├── components/                     # 🎨 Organized component architecture
+│   ├── features/                  # 🎯 Domain-specific components
+│   │   ├── ClubSection/           # Club information section
+│   │   ├── EventsSection/         # Events preview section
+│   │   ├── HighlightsCarousel/    # Carousel for featured content
+│   │   ├── MapSection/            # Map preview section
+│   │   └── index.ts               # Clean feature exports
+│   ├── layout/                    # 📐 Layout components
+│   │   ├── ScreenContainer/       # Generic screen container
+│   │   └── index.ts               # Layout exports
+│   ├── navigation/                # 🧭 Navigation components
+│   │   ├── CustomDrawerContent/   # Custom drawer navigation
+│   │   └── index.ts               # Navigation exports
+│   ├── ui/                        # 🔧 Generic UI components
+│   │   ├── BrandLogo/             # App branding component
+│   │   ├── CategoryFilter/        # Category filtering component
+│   │   ├── DetailScreen/          # Generic detail screen component
+│   │   ├── Divider/               # Visual divider component
+│   │   ├── FilterableListScreen/  # 🆕 Generic filterable list
+│   │   ├── IconSymbol/            # Cross-platform icon component
+│   │   ├── ItemList/              # Generic list component
+│   │   └── index.ts               # UI exports
+│   └── index.ts                   # 🎯 Main component exports
 ├── constants/                      # App constants and styling
 │   ├── Colors.ts                  # Color theme definitions
 │   ├── Typography.ts              # Text styles and fonts
 │   ├── Spacing.ts                 # Spacing constants
 │   ├── CommonStyles.ts            # Reusable styles
+│   ├── Fonts.ts                   # Font definitions
 │   └── index.ts                   # Centralized exports
 ├── assets/                         # Static assets
-│   ├── data/                      # Mock data and types
+│   ├── data/                      # 📊 Centralized mock data
 │   │   ├── events.ts              # Events data and types
 │   │   ├── services.ts            # Services data and types
 │   │   ├── highlights.ts          # Highlights data and types
 │   │   ├── top5.ts                # Top 5 categories and items
+│   │   ├── profile.ts             # 🆕 User profile data
+│   │   ├── settings.ts            # 🆕 App settings data
+│   │   ├── faq.ts                 # 🆕 FAQ data
+│   │   ├── notifications.ts       # 🆕 Notifications data
 │   │   └── index.ts               # Centralized data exports
 │   ├── images/                    # App images and icons
 │   └── fonts/                     # Custom fonts (Harmoni, Inter)
 ├── hooks/                          # Custom React hooks
 └── expo-env.d.ts                  # Expo TypeScript definitions
 ```
+
+### 🚀 **Architecture Highlights**
+
+- **🎯 Direct Route Implementation** - Eliminated 11 wrapper files for cleaner navigation
+- **🏗️ Organized Components** - Logical categorization by purpose (features, layout, navigation, ui)
+- **📊 Centralized Data** - All mock data consolidated in dedicated files
+- **🔧 Reusable Patterns** - Generic components like `FilterableListScreen` and `ScreenContainer`
+- **📦 Clean Imports** - Index files for better developer experience
+- **🎨 Consistent Styling** - Standardized layout patterns and component structure
 
 ## 🎨 Design System
 
@@ -324,6 +341,9 @@ app-vida-laranja/
 - **Prettier Integration** - Automatic code formatting
 - **Mock Data System** - Comprehensive test data
 - **Reusable Components** - DRY principle implementation
+- **🆕 Optimized Architecture** - Streamlined file structure and reduced complexity
+- **🆕 Generic Components** - FilterableListScreen and ScreenContainer for code reuse
+- **🆕 Centralized Data** - All mock data organized in dedicated files
 
 ### Code Architecture Principles
 
@@ -332,6 +352,34 @@ app-vida-laranja/
 - **Type Safety** - Comprehensive TypeScript interfaces
 - **Consistent Naming** - Clear, descriptive naming conventions
 - **Modular Structure** - Easy to maintain and extend
+
+### 🚀 **Optimization Benefits**
+
+The project has been extensively optimized for maintainability and developer experience:
+
+#### **📉 Reduced Complexity**
+
+- **-11 route wrapper files** eliminated for direct navigation
+- **-350+ lines** of duplicated code removed
+- **Simplified mental model** with one file per route
+
+#### **🔧 Enhanced Reusability**
+
+- **FilterableListScreen** - Generic component for Events and Services screens
+- **ScreenContainer** - Standardized layout patterns across all screens
+- **Organized Components** - Logical categorization (features, layout, navigation, ui)
+
+#### **📊 Improved Data Management**
+
+- **Centralized Mock Data** - Profile, Settings, FAQ, and Notifications data
+- **Slug-based Navigation** - SEO-friendly URLs for all content
+- **Type-Safe Interfaces** - Comprehensive TypeScript coverage
+
+#### **🎯 Better Developer Experience**
+
+- **Clean Import System** - Index files for organized exports
+- **Consistent Patterns** - Standardized component structure
+- **Quality Assurance** - Both TypeScript and ESLint checks in development workflow
 
 ## 📱 Platform Support
 
@@ -401,11 +449,14 @@ app-vida-laranja/
 
 ### Development Guidelines
 
-- Follow TypeScript strict mode
-- Use consistent naming conventions
-- Write reusable, composable components
-- Maintain separation between navigation and UI logic
-- Update README when adding new features
+- **Follow TypeScript strict mode** - Ensure type safety across all components
+- **Use consistent naming conventions** - Clear, descriptive names for files and functions
+- **Write reusable, composable components** - Leverage generic patterns like FilterableListScreen
+- **Maintain separation between navigation and UI logic** - Keep routes thin, logic in components
+- **Run quality checks** - Always run both `npx tsc --noEmit` and `npx eslint . --ext .ts,.tsx`
+- **Organize components logically** - Use features/, layout/, navigation/, ui/ categorization
+- **Centralize data** - Keep mock data in dedicated files within assets/data/
+- **Update README when adding new features** - Document architectural changes and new patterns
 
 ## 📄 License
 

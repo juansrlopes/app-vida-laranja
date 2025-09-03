@@ -1,4 +1,4 @@
-import { EventCategory, EventItem } from '@/components/EventsSection';
+import { EventCategory, EventItem } from '@/components/features/EventsSection';
 
 // Extended event interface for detailed views
 export interface EventDetail extends EventItem {

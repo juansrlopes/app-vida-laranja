@@ -5,7 +5,7 @@ export default function BrandLogo() {
   return (
     <View style={styles.container}>
       {/* Brand logo image at natural size */}
-      <Image source={require('../../assets/images/header-logo.png')} />
+      <Image source={require('../../../assets/images/header-logo.png')} />
     </View>
   );
 }

@@ -1,5 +1,5 @@
-import { DetailItem } from '@/components/DetailScreen';
-import { HighlightItem } from '@/components/HighlightsCarousel';
+import { HighlightItem } from '@/components/features/HighlightsCarousel';
+import { DetailItem } from '@/components/ui/DetailScreen';
 
 // Extended highlight interface for detailed views
 export interface HighlightDetail extends HighlightItem, DetailItem {

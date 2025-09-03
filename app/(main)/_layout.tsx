@@ -1,5 +1,5 @@
-import BrandLogo from '@/components/BrandLogo';
-import { CustomDrawerContent } from '@/components/CustomDrawerContent';
+import { CustomDrawerContent } from '@/components/navigation/CustomDrawerContent';
+import BrandLogo from '@/components/ui/BrandLogo';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import { Colors } from '@/constants/Colors';
 import { DrawerToggleButton } from '@react-navigation/drawer';
