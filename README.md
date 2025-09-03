@@ -190,15 +190,11 @@ app-vida-laranja/
 │   │       ├── recommendations.tsx # ⭐ Recommendations (hidden tab)
 │   │       ├── help.tsx           # ❓ Help & Support (hidden tab)
 │   │       ├── settings.tsx       # ⚙️ Settings (hidden tab)
-│   │       ├── event-detail.tsx   # Event detail (parameterized)
-│   │       ├── service-detail.tsx # Service detail (parameterized)
-│   │       ├── highlight-detail.tsx # Highlight detail (parameterized)
-│   │       └── top5-detail.tsx    # Top 5 category detail (parameterized)
-│   └── screens/                    # Parameterized screen components only
-│       ├── event-detail/          # Event detail screen wrapper
-│       ├── service-detail/        # Service detail screen wrapper
-│       ├── highlight-detail/      # Highlight detail screen wrapper
-│       └── top5-detail/           # Top 5 category detail screen wrapper
+│   │       ├── event-detail.tsx   # 📅 Event detail (direct implementation)
+│   │       ├── service-detail.tsx # 🏢 Service detail (direct implementation)
+│   │       ├── highlight-detail.tsx # ✨ Highlight detail (direct implementation)
+│   │       └── top5-detail.tsx    # 🏆 Top 5 category detail (direct implementation)
+
 ├── components/                     # 🎨 Organized component architecture
 │   ├── features/                  # 🎯 Domain-specific components
 │   │   ├── ClubSection/           # Club information section
@@ -248,7 +244,7 @@ app-vida-laranja/
 
 ### 🚀 **Architecture Highlights**
 
-- **🎯 Direct Route Implementation** - Eliminated 11 wrapper files for cleaner navigation
+- **🎯 Complete Route Consolidation** - Zero wrapper files, every route is a direct implementation
 - **🏗️ Organized Components** - Logical categorization by purpose (features, layout, navigation, ui)
 - **📊 Centralized Data** - All mock data consolidated in dedicated files
 - **🔧 Reusable Patterns** - Generic components like `FilterableListScreen` and `ScreenContainer`
@@ -359,9 +355,10 @@ The project has been extensively optimized for maintainability and developer exp
 
 #### **📉 Reduced Complexity**
 
-- **-11 route wrapper files** eliminated for direct navigation
-- **-350+ lines** of duplicated code removed
-- **Simplified mental model** with one file per route
+- **-15 route wrapper files** eliminated for complete consolidation
+- **-400+ lines** of duplicated code removed
+- **Zero indirection** - every route is a direct implementation
+- **Eliminated entire `/app/screens/` folder** for maximum simplicity
 
 #### **🔧 Enhanced Reusability**
 
@@ -452,7 +449,7 @@ The project has been extensively optimized for maintainability and developer exp
 - **Follow TypeScript strict mode** - Ensure type safety across all components
 - **Use consistent naming conventions** - Clear, descriptive names for files and functions
 - **Write reusable, composable components** - Leverage generic patterns like FilterableListScreen
-- **Maintain separation between navigation and UI logic** - Keep routes thin, logic in components
+- **Direct route implementations** - Each route file contains its complete screen implementation
 - **Run quality checks** - Always run both `npx tsc --noEmit` and `npx eslint . --ext .ts,.tsx`
 - **Organize components logically** - Use features/, layout/, navigation/, ui/ categorization
 - **Centralize data** - Keep mock data in dedicated files within assets/data/
