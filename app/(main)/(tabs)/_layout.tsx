@@ -127,6 +127,13 @@ export default function TabLayout() {
           href: null, // Hide from tab bar - accessible via Services navigation
         }}
       />
+      <Tabs.Screen
+        name="highlight-detail"
+        options={{
+          title: 'Highlight Detail',
+          href: null, // Hide from tab bar - accessible via Highlights navigation
+        }}
+      />
     </Tabs>
   );
 }

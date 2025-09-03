@@ -3,7 +3,7 @@
 
 export { categoriesData, getCategoryBySlug } from './categories';
 export { getEventById, mockEvents } from './events';
-export { mockHighlights } from './highlights';
+export { getHighlightById, mockHighlights } from './highlights';
 export {
   getServiceById,
   mockServices,
@@ -17,5 +17,6 @@ export type { EventCategory, EventItem } from '@/components/EventsSection';
 export type { HighlightItem } from '@/components/HighlightsCarousel';
 export type { Category, CategoryItem } from './categories';
 export type { EventDetail } from './events';
+export type { HighlightDetail } from './highlights';
 export type { ServiceCategory, ServiceDetail, ServiceItem } from './services';
 export type { Top5Item } from './top5';

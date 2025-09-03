@@ -1,5 +1,6 @@
 import ClubSection from '@/components/ClubSection';
 import Divider from '@/components/Divider';
+import type { EventItem } from '@/components/EventsSection';
 import EventsSection from '@/components/EventsSection';
 import HighlightsCarousel from '@/components/HighlightsCarousel';
 import MapSection from '@/components/MapSection';
@@ -25,6 +26,11 @@ export default function HomeScreen() {
     router.push('/(main)/(tabs)/services');
   };
 
+  const handleEventPress = (event: EventItem) => {
+    // Navigate to event detail screen
+    router.push(`/(main)/(tabs)/event-detail?eventId=${event.id}`);
+  };
+
   return (
     <ScrollView
       style={[styles.container, { backgroundColor: Colors.background }]}
@@ -47,6 +53,7 @@ export default function HomeScreen() {
         events={mockEvents}
         title="Events"
         onViewAll={handleViewAllEvents}
+        onEventPress={handleEventPress}
       />
 
       {/* Divider */}

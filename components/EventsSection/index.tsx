@@ -25,15 +25,22 @@ interface EventsSectionProps {
   events: EventItem[];
   title?: string;
   onViewAll?: () => void;
+  onEventPress?: (event: EventItem) => void;
 }
 
 export default function EventsSection({
   events,
   title = 'Events',
   onViewAll,
+  onEventPress,
 }: EventsSectionProps) {
   const renderEventItem = (event: EventItem) => (
-    <View key={event.id} style={styles.eventItem}>
+    <Pressable
+      key={event.id}
+      style={styles.eventItem}
+      onPress={() => onEventPress?.(event)}
+      android_ripple={{ color: 'rgba(0,0,0,0.1)' }}
+    >
       {/* Event Image */}
       <View style={styles.imageContainer}>
         <Image
@@ -58,7 +65,7 @@ export default function EventsSection({
           {event.subtitle}
         </Text>
       </View>
-    </View>
+    </Pressable>
   );
 
   return (

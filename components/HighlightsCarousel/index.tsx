@@ -1,9 +1,11 @@
 import { Colors, Typography } from '@/constants';
+import { router } from 'expo-router';
 import React from 'react';
 import {
   Dimensions,
   FlatList,
   Image,
+  Pressable,
   StyleSheet,
   Text,
   View,
@@ -20,17 +22,32 @@ export interface HighlightItem {
 interface HighlightsCarouselProps {
   items: HighlightItem[];
   title?: string;
+  onItemPress?: (item: HighlightItem) => void;
 }
 
 export default function HighlightsCarousel({
   items,
   title = 'Highlights',
+  onItemPress,
 }: HighlightsCarouselProps) {
   const screenWidth = Dimensions.get('window').width;
   const itemWidth = (screenWidth - 60) / 2; // 2 items per screen with padding
 
+  const handleItemPress = (item: HighlightItem) => {
+    if (onItemPress) {
+      onItemPress(item);
+    } else {
+      // Default navigation to highlight detail
+      router.push(`/(main)/(tabs)/highlight-detail?highlightId=${item.id}`);
+    }
+  };
+
   const renderHighlightItem = ({ item }: { item: HighlightItem }) => (
-    <View style={[styles.itemContainer, { width: itemWidth }]}>
+    <Pressable
+      style={[styles.itemContainer, { width: itemWidth }]}
+      onPress={() => handleItemPress(item)}
+      android_ripple={{ color: 'rgba(0,0,0,0.1)' }}
+    >
       <View style={styles.imageContainer}>
         <Image source={item.image} style={styles.image} resizeMode="cover" />
       </View>
@@ -48,7 +65,7 @@ export default function HighlightsCarousel({
           {item.subtitle}
         </Text>
       </View>
-    </View>
+    </Pressable>
   );
 
   return (
