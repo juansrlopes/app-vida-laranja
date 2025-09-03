@@ -5,11 +5,11 @@ import { useLocalSearchParams } from 'expo-router';
 // This file handles the routing while the actual UI is in screens/highlight-detail
 // Keeps tab navigation visible while showing highlight details
 export default function HighlightDetailRoute() {
-  const { highlightId } = useLocalSearchParams<{ highlightId: string }>();
+  const { highlightSlug } = useLocalSearchParams<{ highlightSlug: string }>();
 
-  if (!highlightId) {
+  if (!highlightSlug) {
     return null;
   }
 
-  return <HighlightDetailScreen highlightId={highlightId} />;
+  return <HighlightDetailScreen highlightSlug={highlightSlug} />;
 }

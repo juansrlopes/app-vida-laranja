@@ -15,6 +15,7 @@ export type EventCategory =
 // Type definition for event items
 export interface EventItem {
   id: string;
+  slug: string; // URL-friendly identifier
   image: any; // For require() images or { uri: string } for remote images
   title: string;
   subtitle: string;

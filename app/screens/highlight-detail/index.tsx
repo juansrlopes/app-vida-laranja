@@ -2,18 +2,18 @@ import DetailScreen from '@/components/DetailScreen';
 import { Colors, Typography } from '@/constants';
 import React from 'react';
 import { Linking, Text, View } from 'react-native';
-import { getHighlightById } from '../../../assets/data';
+import { getHighlightBySlug } from '../../../assets/data';
 
 interface HighlightDetailScreenProps {
-  highlightId: string;
+  highlightSlug: string;
 }
 
 // Highlight detail screen wrapper
 // Uses the reusable DetailScreen component with highlight-specific configuration
 export default function HighlightDetailScreen({
-  highlightId,
+  highlightSlug,
 }: HighlightDetailScreenProps) {
-  const highlight = getHighlightById(highlightId);
+  const highlight = getHighlightBySlug(highlightSlug);
 
   if (!highlight) {
     return (

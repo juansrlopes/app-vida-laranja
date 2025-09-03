@@ -1,10 +1,15 @@
 // Mock data exports
 // This file centralizes all mock data for easy importing across the app
 
-export { getEventById, mockEvents } from './events';
-export { getHighlightById, mockHighlights } from './highlights';
+export { getEventById, getEventBySlug, mockEvents } from './events';
+export {
+  getHighlightById,
+  getHighlightBySlug,
+  mockHighlights,
+} from './highlights';
 export {
   getServiceById,
+  getServiceBySlug,
   mockServices,
   serviceCategories,
   serviceCategoryLabels,

@@ -2,6 +2,7 @@ import { EventItem } from '@/components/EventsSection';
 
 // Extended event interface for detailed views
 export interface EventDetail extends EventItem {
+  slug: string; // URL-friendly identifier
   description: string;
   location: string;
   date: string;
@@ -16,6 +17,7 @@ export interface EventDetail extends EventItem {
 export const mockEvents: EventDetail[] = [
   {
     id: '1',
+    slug: 'music-festival',
     image: require('../images/events.webp'),
     title: 'Music Festival',
     subtitle: 'Tonight at 8 PM',
@@ -33,6 +35,7 @@ export const mockEvents: EventDetail[] = [
   },
   {
     id: '2',
+    slug: 'art-workshop',
     image: require('../images/events.webp'),
     title: 'Art Workshop',
     subtitle: 'Tomorrow 2 PM',
@@ -55,6 +58,7 @@ export const mockEvents: EventDetail[] = [
   },
   {
     id: '3',
+    slug: 'food-market',
     image: require('../images/events.webp'),
     title: 'Food Market',
     subtitle: 'Weekend Special',
@@ -76,6 +80,7 @@ export const mockEvents: EventDetail[] = [
   },
   {
     id: '4',
+    slug: 'yoga-class',
     image: require('../images/events.webp'),
     title: 'Yoga Class',
     subtitle: 'Every Monday',
@@ -93,6 +98,7 @@ export const mockEvents: EventDetail[] = [
   },
   {
     id: '5',
+    slug: 'photography-workshop',
     image: require('../images/events.webp'),
     title: 'Photography Workshop',
     subtitle: 'Saturday 10 AM',
@@ -110,6 +116,7 @@ export const mockEvents: EventDetail[] = [
   },
   {
     id: '6',
+    slug: 'jazz-night',
     image: require('../images/events.webp'),
     title: 'Jazz Night',
     subtitle: 'Friday 9 PM',
@@ -127,6 +134,7 @@ export const mockEvents: EventDetail[] = [
   },
   {
     id: '7',
+    slug: 'street-food-festival',
     image: require('../images/events.webp'),
     title: 'Street Food Festival',
     subtitle: 'This Weekend',
@@ -148,6 +156,7 @@ export const mockEvents: EventDetail[] = [
   },
   {
     id: '8',
+    slug: 'painting-class',
     image: require('../images/events.webp'),
     title: 'Painting Class',
     subtitle: 'Wednesday 3 PM',
@@ -165,7 +174,12 @@ export const mockEvents: EventDetail[] = [
   },
 ];
 
-// Helper function to get event by ID
+// Helper function to get event by slug
+export const getEventBySlug = (slug: string): EventDetail | undefined => {
+  return mockEvents.find((event) => event.slug === slug);
+};
+
+// Legacy function for backward compatibility (deprecated)
 export const getEventById = (id: string): EventDetail | undefined => {
   return mockEvents.find((event) => event.id === id);
 };

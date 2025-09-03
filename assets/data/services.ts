@@ -19,6 +19,7 @@ export interface ServiceItem {
 
 // Extended service interface for detailed views
 export interface ServiceDetail extends ServiceItem {
+  slug: string; // URL-friendly identifier
   description: string;
   location: string;
   contact: string;
@@ -35,6 +36,7 @@ export interface ServiceDetail extends ServiceItem {
 export const mockServices: ServiceDetail[] = [
   {
     id: '1',
+    slug: 'legal-consultation',
     image: require('../images/services.jpg'),
     title: 'Legal Consultation',
     subtitle: 'Expert legal advice for your business needs',
@@ -58,6 +60,7 @@ export const mockServices: ServiceDetail[] = [
   },
   {
     id: '2',
+    slug: 'immigration-law',
     image: require('../images/services.jpg'),
     title: 'Immigration Law',
     subtitle: 'Visa and residency permit assistance',
@@ -81,6 +84,7 @@ export const mockServices: ServiceDetail[] = [
   },
   {
     id: '3',
+    slug: 'hair-beauty-salon',
     image: require('../images/services.jpg'),
     title: 'Hair & Beauty Salon',
     subtitle: 'Professional styling and beauty treatments',
@@ -98,6 +102,7 @@ export const mockServices: ServiceDetail[] = [
   },
   {
     id: '4',
+    slug: 'spa-wellness',
     image: require('../images/services.jpg'),
     title: 'Spa & Wellness',
     subtitle: 'Relaxing treatments and massage therapy',
@@ -121,6 +126,7 @@ export const mockServices: ServiceDetail[] = [
   },
   {
     id: '5',
+    slug: 'personal-training',
     image: require('../images/services.jpg'),
     title: 'Personal Training',
     subtitle: 'One-on-one fitness coaching',
@@ -144,6 +150,7 @@ export const mockServices: ServiceDetail[] = [
   },
   {
     id: '6',
+    slug: 'yoga-studio',
     image: require('../images/services.jpg'),
     title: 'Yoga Studio',
     subtitle: 'Classes for all levels and styles',
@@ -162,6 +169,7 @@ export const mockServices: ServiceDetail[] = [
   },
   {
     id: '7',
+    slug: 'catering-services',
     image: require('../images/services.jpg'),
     title: 'Catering Services',
     subtitle: 'Professional catering for events',
@@ -185,6 +193,7 @@ export const mockServices: ServiceDetail[] = [
   },
   {
     id: '8',
+    slug: 'private-chef',
     image: require('../images/services.jpg'),
     title: 'Private Chef',
     subtitle: 'Personal cooking services at home',
@@ -207,6 +216,7 @@ export const mockServices: ServiceDetail[] = [
   },
   {
     id: '9',
+    slug: 'property-management',
     image: require('../images/services.jpg'),
     title: 'Property Management',
     subtitle: 'Complete real estate management services',
@@ -230,6 +240,7 @@ export const mockServices: ServiceDetail[] = [
   },
   {
     id: '10',
+    slug: 'real-estate-agent',
     image: require('../images/services.jpg'),
     title: 'Real Estate Agent',
     subtitle: 'Buy, sell, or rent properties in Amsterdam',
@@ -258,6 +269,7 @@ export const mockServices: ServiceDetail[] = [
   },
   {
     id: '11',
+    slug: 'translation-services',
     image: require('../images/services.jpg'),
     title: 'Translation Services',
     subtitle: 'Professional document translation',
@@ -281,6 +293,7 @@ export const mockServices: ServiceDetail[] = [
   },
   {
     id: '12',
+    slug: 'photography',
     image: require('../images/services.jpg'),
     title: 'Photography',
     subtitle: 'Event and portrait photography',
@@ -304,7 +317,12 @@ export const mockServices: ServiceDetail[] = [
   },
 ];
 
-// Helper function to get service by ID
+// Helper function to get service by slug
+export const getServiceBySlug = (slug: string): ServiceDetail | undefined => {
+  return mockServices.find((service) => service.slug === slug);
+};
+
+// Legacy function for backward compatibility (deprecated)
 export const getServiceById = (id: string): ServiceDetail | undefined => {
   return mockServices.find((service) => service.id === id);
 };

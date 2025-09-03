@@ -5,11 +5,11 @@ import { useLocalSearchParams } from 'expo-router';
 // This file handles the routing while the actual UI is in screens/event-detail
 // Keeps tab navigation visible while showing event details
 export default function EventDetailRoute() {
-  const { eventId } = useLocalSearchParams<{ eventId: string }>();
+  const { eventSlug } = useLocalSearchParams<{ eventSlug: string }>();
 
-  if (!eventId) {
+  if (!eventSlug) {
     return null;
   }
 
-  return <EventDetailScreen eventId={eventId} />;
+  return <EventDetailScreen eventSlug={eventSlug} />;
 }

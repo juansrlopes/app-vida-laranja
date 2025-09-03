@@ -5,11 +5,11 @@ import { useLocalSearchParams } from 'expo-router';
 // This file handles the routing while the actual UI is in screens/service-detail
 // Keeps tab navigation visible while showing service details
 export default function ServiceDetailRoute() {
-  const { serviceId } = useLocalSearchParams<{ serviceId: string }>();
+  const { serviceSlug } = useLocalSearchParams<{ serviceSlug: string }>();
 
-  if (!serviceId) {
+  if (!serviceSlug) {
     return null;
   }
 
-  return <ServiceDetailScreen serviceId={serviceId} />;
+  return <ServiceDetailScreen serviceSlug={serviceSlug} />;
 }

@@ -14,6 +14,7 @@ import {
 // Type definition for highlight items
 export interface HighlightItem {
   id: string;
+  slug: string; // URL-friendly identifier
   image: any; // For require() images or { uri: string } for remote images
   title: string;
   subtitle: string;
@@ -38,7 +39,7 @@ export default function HighlightsCarousel({
       onItemPress(item);
     } else {
       // Default navigation to highlight detail
-      router.push(`/(main)/(tabs)/highlight-detail?highlightId=${item.id}`);
+      router.push(`/(main)/(tabs)/highlight-detail?highlightSlug=${item.slug}`);
     }
   };
 

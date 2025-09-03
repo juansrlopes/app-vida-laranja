@@ -3,6 +3,7 @@ import { HighlightItem } from '@/components/HighlightsCarousel';
 
 // Extended highlight interface for detailed views
 export interface HighlightDetail extends HighlightItem, DetailItem {
+  slug: string; // URL-friendly identifier
   type: 'event' | 'service' | 'experience';
   location: string;
   date?: string;
@@ -22,6 +23,7 @@ export interface HighlightDetail extends HighlightItem, DetailItem {
 export const mockHighlights: HighlightDetail[] = [
   {
     id: '1',
+    slug: 'summer-festival-2024',
     image: require('../images/hightlights.jpg'),
     title: 'Summer Festival 2024',
     subtitle: 'Music & Arts',
@@ -46,6 +48,7 @@ export const mockHighlights: HighlightDetail[] = [
   },
   {
     id: '2',
+    slug: 'cooking-workshop',
     image: require('../images/hightlights.jpg'),
     title: 'Cooking Workshop',
     subtitle: 'Learn & Taste',
@@ -74,6 +77,7 @@ export const mockHighlights: HighlightDetail[] = [
   },
   {
     id: '3',
+    slug: 'yoga-in-the-park',
     image: require('../images/hightlights.jpg'),
     title: 'Yoga in the Park',
     subtitle: 'Health & Wellness',
@@ -106,6 +110,7 @@ export const mockHighlights: HighlightDetail[] = [
   },
   {
     id: '4',
+    slug: 'art-exhibition',
     image: require('../images/hightlights.jpg'),
     title: 'Art Exhibition',
     subtitle: 'Local Artists',
@@ -131,7 +136,14 @@ export const mockHighlights: HighlightDetail[] = [
   },
 ];
 
-// Helper function to get highlight by ID
+// Helper function to get highlight by slug
+export const getHighlightBySlug = (
+  slug: string
+): HighlightDetail | undefined => {
+  return mockHighlights.find((highlight) => highlight.slug === slug);
+};
+
+// Legacy function for backward compatibility (deprecated)
 export const getHighlightById = (id: string): HighlightDetail | undefined => {
   return mockHighlights.find((highlight) => highlight.id === id);
 };

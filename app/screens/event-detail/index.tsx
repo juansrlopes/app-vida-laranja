@@ -1,15 +1,17 @@
 import DetailScreen from '@/components/DetailScreen';
 import React from 'react';
-import { getEventById } from '../../../assets/data';
+import { getEventBySlug } from '../../../assets/data';
 
 interface EventDetailScreenProps {
-  eventId: string;
+  eventSlug: string;
 }
 
 // Event detail screen wrapper
 // Uses the reusable DetailScreen component with event-specific configuration
-export default function EventDetailScreen({ eventId }: EventDetailScreenProps) {
-  const event = getEventById(eventId);
+export default function EventDetailScreen({
+  eventSlug,
+}: EventDetailScreenProps) {
+  const event = getEventBySlug(eventSlug);
 
   if (!event) {
     return (

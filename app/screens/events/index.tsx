@@ -44,7 +44,7 @@ export default function EventsScreen() {
   }, [selectedCategory]);
 
   const handleEventPress = (event: EventDetail) => {
-    router.push(`/(main)/(tabs)/event-detail?eventId=${event.id}`);
+    router.push(`/(main)/(tabs)/event-detail?eventSlug=${event.slug}`);
   };
 
   return (

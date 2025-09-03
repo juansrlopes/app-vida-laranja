@@ -30,7 +30,7 @@ export default function ServicesScreen() {
   }, [selectedCategory]);
 
   const handleServicePress = (service: ServiceDetail) => {
-    router.push(`/(main)/(tabs)/service-detail?serviceId=${service.id}`);
+    router.push(`/(main)/(tabs)/service-detail?serviceSlug=${service.slug}`);
   };
 
   return (

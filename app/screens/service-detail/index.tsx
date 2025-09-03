@@ -2,18 +2,18 @@ import DetailScreen from '@/components/DetailScreen';
 import { Colors, Typography } from '@/constants';
 import React from 'react';
 import { Linking, Text, View } from 'react-native';
-import { getServiceById } from '../../../assets/data';
+import { getServiceBySlug } from '../../../assets/data';
 
 interface ServiceDetailScreenProps {
-  serviceId: string;
+  serviceSlug: string;
 }
 
 // Service detail screen wrapper
 // Uses the reusable DetailScreen component with service-specific configuration
 export default function ServiceDetailScreen({
-  serviceId,
+  serviceSlug,
 }: ServiceDetailScreenProps) {
-  const service = getServiceById(serviceId);
+  const service = getServiceBySlug(serviceSlug);
 
   if (!service) {
     return (

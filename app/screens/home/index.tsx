@@ -28,7 +28,7 @@ export default function HomeScreen() {
 
   const handleEventPress = (event: EventItem) => {
     // Navigate to event detail screen
-    router.push(`/(main)/(tabs)/event-detail?eventId=${event.id}`);
+    router.push(`/(main)/(tabs)/event-detail?eventSlug=${event.slug}`);
   };
 
   return (
