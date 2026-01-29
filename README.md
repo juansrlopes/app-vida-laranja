@@ -125,7 +125,7 @@ interface ServiceDetail {
 
 ### Prerequisites
 
-- Node.js (v18 or higher)
+- Node.js (v18 or higher; v20 LTS recommended)
 - npm or yarn
 - Expo CLI
 - iOS Simulator (for iOS development)
@@ -163,6 +163,12 @@ interface ServiceDetail {
 
    # Web Browser
    npx expo start --web
+   ```
+
+5. **Run quality checks** (optional; also run automatically on commit)
+
+   ```bash
+   npm run validate
    ```
 
 ## 📁 Project Structure
@@ -318,11 +324,12 @@ app-vida-laranja/
 
 ### Key Technologies
 
-- **Expo SDK 53** - Development platform and tooling
-- **React Native 0.79.6** - Mobile framework
-- **Expo Router 5.1.5** - File-based routing system
+- **Expo SDK 54** - Development platform and tooling
+- **React Native 0.81** - Mobile framework
+- **Expo Router 6** - File-based routing system
 - **React Navigation 7** - Navigation library
 - **TypeScript** - Type safety and developer experience
+- **React Native Reanimated 4** - Animations
 - **Expo Linear Gradient** - Beautiful gradient backgrounds
 - **React Native Maps** - Interactive map functionality
 - **Expo Location** - GPS and location services
@@ -436,6 +443,26 @@ The project has been extensively optimized for maintainability and developer exp
 - **🍺 Bars** - Best bars and nightlife
 - **🍕 Pizza** - Top pizza places
 
+## 🔧 Troubleshooting
+
+### Worklets version mismatch (0.7.2 vs 0.5.1)
+
+If you see **"Mismatch between JavaScript part and native part of Worklets"** or **"Route is missing the required default export"** after upgrading to Expo SDK 54:
+
+- **Using Expo Go:** The native part is from the Expo Go app. Update Expo Go to the version that supports SDK 54:
+  - **iOS:** Install the latest Expo Go from the [App Store](https://apps.apple.com/app/expo-go/id982107779) or use [expo.dev/go](https://expo.dev/go?sdkVersion=54&platform=ios) for the simulator.
+  - **Android:** Update Expo Go from the Play Store or use [expo.dev/go](https://expo.dev/go?sdkVersion=54&platform=android).
+- **Using a development build:** Rebuild the native app so it picks up the new Worklets/Reanimated native code:
+  ```bash
+  npx expo prebuild --clean
+  # Then build and run (e.g. open ios/*.xcworkspace in Xcode and run, or use EAS Build)
+  ```
+- **Clear Metro cache** once after updating:
+  ```bash
+  npm run start:clean
+  ```
+  Then press `i` for iOS or `a` for Android.
+
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -450,7 +477,7 @@ The project has been extensively optimized for maintainability and developer exp
 - **Use consistent naming conventions** - Clear, descriptive names for files and functions
 - **Write reusable, composable components** - Leverage generic patterns like FilterableListScreen
 - **Direct route implementations** - Each route file contains its complete screen implementation
-- **Run quality checks** - Always run both `npx tsc --noEmit` and `npx eslint . --ext .ts,.tsx`
+- **Automated quality checks** - TypeScript and ESLint run on every commit (husky + lint-staged). Use `npm run validate` to check locally; the editor also shows issues as you type.
 - **Organize components logically** - Use features/, layout/, navigation/, ui/ categorization
 - **Centralize data** - Keep mock data in dedicated files within assets/data/
 - **Update README when adding new features** - Document architectural changes and new patterns
