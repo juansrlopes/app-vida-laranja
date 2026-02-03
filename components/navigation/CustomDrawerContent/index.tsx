@@ -23,6 +23,16 @@ const drawerItems = [
     icon: 'map' as const,
   },
   {
+    label: 'Route',
+    route: '/(main)/(tabs)/build-route' as const,
+    icon: 'map.fill' as const,
+  },
+  {
+    label: 'My routes',
+    route: '/(main)/(tabs)/my-routes' as const,
+    icon: 'list.bullet' as const,
+  },
+  {
     label: 'Notifications',
     route: '/(main)/(tabs)/notifications' as const, // Hidden tab screen (keeps tabs visible)
     icon: 'bell' as const,

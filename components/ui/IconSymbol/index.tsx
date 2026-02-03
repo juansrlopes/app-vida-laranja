@@ -25,7 +25,11 @@ const MAPPING = {
   // Action icons
   xmark: 'close',
   map: 'map',
+  'map.fill': 'map',
+  'list.bullet': 'list',
   'chevron.left': 'arrow-back',
+  trash: 'delete',
+  'trash.fill': 'delete',
 } as Partial<
   Record<
     import('expo-symbols').SymbolViewProps['name'],

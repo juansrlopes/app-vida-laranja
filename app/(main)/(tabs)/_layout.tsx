@@ -141,6 +141,27 @@ export default function TabLayout() {
           href: null, // Hide from tab bar - accessible via Find Favourites navigation
         }}
       />
+      <Tabs.Screen
+        name="build-route"
+        options={{
+          title: 'Route',
+          href: null, // Hide from tab bar - accessible via drawer
+        }}
+      />
+      <Tabs.Screen
+        name="my-routes"
+        options={{
+          title: 'My routes',
+          href: null, // Hide from tab bar - accessible via drawer
+        }}
+      />
+      <Tabs.Screen
+        name="route-detail"
+        options={{
+          title: 'Route detail',
+          href: null, // Hide from tab bar - navigated from build-route or my-routes
+        }}
+      />
     </Tabs>
   );
 }
