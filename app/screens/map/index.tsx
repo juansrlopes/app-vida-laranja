@@ -29,51 +29,59 @@ export default function MapScreen() {
   } | null>(null);
   const [locationPermission, setLocationPermission] = useState<boolean>(false);
   const [isLoadingLocation, setIsLoadingLocation] = useState<boolean>(true);
+  const [locationRequestId, setLocationRequestId] = useState(0);
 
   useEffect(() => {
-    requestLocationPermission();
-  }, []);
+    let cancelled = false;
 
-  const requestLocationPermission = async () => {
-    try {
-      // Request permission to access location
-      const { status } = await Location.requestForegroundPermissionsAsync();
+    Location.requestForegroundPermissionsAsync()
+      .then(async ({ status }) => {
+        if (cancelled) {
+          return;
+        }
 
-      if (status !== 'granted') {
-        setLocationPermission(false);
+        if (status !== 'granted') {
+          setLocationPermission(false);
+          setIsLoadingLocation(false);
+          console.log('Location permission denied');
+          return;
+        }
+
+        setLocationPermission(true);
+
+        const currentLocation = await Location.getCurrentPositionAsync({
+          accuracy: Location.Accuracy.Balanced,
+        });
+
+        if (cancelled) {
+          return;
+        }
+
+        const userCoords = {
+          latitude: currentLocation.coords.latitude,
+          longitude: currentLocation.coords.longitude,
+        };
+
+        setUserLocation(userCoords);
+        setLocation({
+          ...userCoords,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        });
         setIsLoadingLocation(false);
-        console.log('Location permission denied');
-        return;
-      }
-
-      setLocationPermission(true);
-
-      // Get current location
-      const currentLocation = await Location.getCurrentPositionAsync({
-        accuracy: Location.Accuracy.Balanced,
+      })
+      .catch((error: unknown) => {
+        console.error('Error getting location:', error);
+        if (!cancelled) {
+          setIsLoadingLocation(false);
+          setLocationPermission(false);
+        }
       });
 
-      const userCoords = {
-        latitude: currentLocation.coords.latitude,
-        longitude: currentLocation.coords.longitude,
-      };
-
-      setUserLocation(userCoords);
-
-      // Update map region to user's location
-      setLocation({
-        ...userCoords,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-      });
-
-      setIsLoadingLocation(false);
-    } catch (error) {
-      console.error('Error getting location:', error);
-      setIsLoadingLocation(false);
-      setLocationPermission(false);
-    }
-  };
+    return () => {
+      cancelled = true;
+    };
+  }, [locationRequestId]);
 
   const handleMyLocationPress = () => {
     if (!locationPermission) {
@@ -82,7 +90,7 @@ export default function MapScreen() {
         'Please enable location permissions to see your current location on the map.',
         [
           { text: 'Cancel', style: 'cancel' },
-          { text: 'Retry', onPress: requestLocationPermission },
+          { text: 'Retry', onPress: () => setLocationRequestId((id) => id + 1) },
         ]
       );
       return;

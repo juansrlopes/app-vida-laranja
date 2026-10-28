@@ -53,7 +53,7 @@ export default function AboutScreen() {
             { color: Colors.text, textAlign: 'center', lineHeight: 24 },
           ]}
         >
-          Vida Laranja is your ultimate guide to Amsterdam's hidden gems and
+          Vida Laranja is your ultimate guide to Amsterdam’s hidden gems and
           local favorites. From the best fries spots to cozy coffee shops, we
           help you explore the city like a true local.
         </Text>
@@ -69,7 +69,7 @@ export default function AboutScreen() {
             },
           ]}
         >
-          Whether you're looking for the top restaurants, cultural events, or
+          Whether you’re looking for the top restaurants, cultural events, or
           unique experiences, our curated recommendations will make your
           Amsterdam adventure unforgettable.
         </Text>
@@ -78,7 +78,7 @@ export default function AboutScreen() {
       {/* Features */}
       <View style={styles.featuresContainer}>
         <Text style={[Typography.h3, { color: Colors.text, marginBottom: 16 }]}>
-          What You'll Find
+          What You’ll Find
         </Text>
 
         <View style={styles.featureItem}>

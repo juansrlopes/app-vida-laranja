@@ -4,22 +4,22 @@
     "slug": "app-vida-laranja",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/main-logo.png",
+    "icon": "./assets/images/icon.png",
     "scheme": "appvidalaranja",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.appvidalaranja",
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "This app uses location to show your position on the map and help you discover nearby events and services in Amsterdam."
       }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/main-logo.png",
+        "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true,
+      "package": "com.anonymous.appvidalaranja",
       "permissions": ["ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION"]
     },
     "web": {

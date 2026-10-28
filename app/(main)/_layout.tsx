@@ -2,8 +2,7 @@ import BrandLogo from '@/components/BrandLogo';
 import { CustomDrawerContent } from '@/components/CustomDrawerContent';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import { Colors } from '@/constants/Colors';
-import { DrawerToggleButton } from '@react-navigation/drawer';
-import { Drawer } from 'expo-router/drawer';
+import { Drawer, DrawerToggleButton } from 'expo-router/drawer';
 
 export default function DrawerLayout() {
   return (

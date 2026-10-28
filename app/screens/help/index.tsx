@@ -363,7 +363,7 @@ export default function HelpScreen() {
             { color: Colors.text, textAlign: 'center' },
           ]}
         >
-          Still need help? We're here for you! 🧡
+          Still need help? We’re here for you! 🧡
         </Text>
         <Text
           style={[

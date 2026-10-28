@@ -106,21 +106,6 @@ export default function NotificationsScreen() {
     }
   };
 
-  const getNotificationColor = (type: NotificationItem['type']) => {
-    switch (type) {
-      case 'event':
-        return Colors.tint;
-      case 'recommendation':
-        return '#FFB800';
-      case 'social':
-        return '#4CAF50';
-      case 'system':
-        return '#757575';
-      default:
-        return Colors.text;
-    }
-  };
-
   const markAsRead = (id: string) => {
     setNotifications((prev) =>
       prev.map((notification) =>

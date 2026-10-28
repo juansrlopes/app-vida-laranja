@@ -30,7 +30,6 @@ export default function RootLayout() {
         screenOptions={{
           headerShown: false, // Hide headers by default
         }}
-        initialRouteName="welcome" // Start with welcome screen
       >
         {/* Welcome screen - first screen users see */}
         <Stack.Screen
@@ -42,8 +41,6 @@ export default function RootLayout() {
         />
         {/* Main app navigation (drawer + tabs) */}
         <Stack.Screen name="(main)" options={{ headerShown: false }} />
-        {/* 404 error screen */}
-        <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="dark" />
     </>
